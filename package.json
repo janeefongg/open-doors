@@ -71,7 +71,6 @@
     "build": "node scripts/build.js",
     "server": "nodemon bin/entry.js",
     "schema": "node bin/schema.js",
-    "eject": "react-scripts eject",
     "test": "node scripts/test.js --env=jsdom"
   },
   "jest": {
