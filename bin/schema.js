@@ -39,14 +39,14 @@ if (force) {
   sequelize
     .sync({ force: true })
     .then(() => {
-      console.log('Dropped tables and recreated tables in db.js');
+      console.log('Dropped tables and recreated tables from server/models/');
       process.exit();
     });
 } else if (!force && process.argv.length === 2) {
   sequelize
     .sync()
     .then(() => {
-       console.log("Created tables in db.js");
+       console.log("Created tables from server/models/");
        process.exit();
     });
 } else {
