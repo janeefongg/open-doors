@@ -22,13 +22,14 @@
     "detect-port": "1.0.0",
     "dotenv": "2.0.0",
     "enzyme": "^2.4.1",
-    "eslint": "3.5.0",
+    "eslint": "^3.7.1",
+    "eslint-config-airbnb": "^12.0.0",
     "eslint-config-react-app": "^0.2.1",
     "eslint-loader": "1.5.0",
     "eslint-plugin-flowtype": "2.18.1",
-    "eslint-plugin-import": "1.12.0",
-    "eslint-plugin-jsx-a11y": "2.2.2",
-    "eslint-plugin-react": "6.3.0",
+    "eslint-plugin-import": "^1.16.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.3.0",
     "extract-text-webpack-plugin": "1.0.1",
     "file-loader": "0.9.0",
     "filesize": "3.3.0",
@@ -74,8 +75,10 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "server": "nodemon bin/entry.js",
+    "server": "nodemon bin/entry.js --exec 'npm run lint:server && node'",
     "schema": "node bin/schema.js",
+    "lint:client": "eslint -c config/eslint.config.client.js src/**/*.js",
+    "lint:server": "eslint -c config/eslint.config.server.js server/**/*.js",
     "test": "node scripts/test.js --env=jsdom"
   },
   "jest": {
@@ -96,9 +99,6 @@
     ],
     "testEnvironment": "node",
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(js|jsx)$"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
   },
   "proxy": "http://localhost:3001/"
 }
