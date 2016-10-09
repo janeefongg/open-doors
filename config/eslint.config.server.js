@@ -9,7 +9,6 @@ module.exports = {
         "VariableDeclarator": true
       }
     }],
-    "comma-dangle": ["error", "never"],
     "import/prefer-default-export": "off",
     "no-console": "off",
     "new-cap": "off"
