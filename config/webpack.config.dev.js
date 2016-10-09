@@ -148,6 +148,11 @@ module.exports = {
     ]
   },
 
+  // ESlint configuration file
+  eslint: {
+    configFile: paths.appConfig + '/eslint.config.client.js'
+  },
+
   // We use PostCSS for autoprefixing only.
   postcss: function() {
     return [
