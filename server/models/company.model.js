@@ -2,7 +2,7 @@ import Sequelize from 'sequelize';
 import sequelize from '../db/db';
 
 const Company = sequelize.define('companies', {
-  address: {
+  'address': {
     type    : Sequelize.STRING,
     validate: {
       notNull: true,
@@ -16,9 +16,9 @@ const Company = sequelize.define('companies', {
     },
   },
   // average rating between 1~5, stored as a 3-digit integer
-  interactions       : Sequelize.INTEGER,
-  harassment         : Sequelize.INTEGER,
-  advancement        : Sequelize.INTEGER,
+  'interactions'     : Sequelize.INTEGER,
+  'harassment'       : Sequelize.INTEGER,
+  'advancement'      : Sequelize.INTEGER,
   'family-support'   : Sequelize.INTEGER,
   'work-life-balance': Sequelize.INTEGER,
   'equal-pay'        : Sequelize.INTEGER,
