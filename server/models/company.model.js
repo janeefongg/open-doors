@@ -2,6 +2,12 @@ import Sequelize from 'sequelize';
 import sequelize from '../db/db';
 
 const Company = sequelize.define('companies', {
+  'name': {
+    type    : Sequelize.STRING,
+    validate: {
+      notNull: true,
+    },
+  },
   'address': {
     type    : Sequelize.STRING,
     validate: {
@@ -22,10 +28,6 @@ const Company = sequelize.define('companies', {
   'family-support'   : Sequelize.INTEGER,
   'work-life-balance': Sequelize.INTEGER,
   'equal-pay'        : Sequelize.INTEGER,
-  // yes or no
-  'dental-benefits'  : Sequelize.INTEGER,
-  'medical-benefits' : Sequelize.INTEGER,
-  'vision-benefits'  : Sequelize.INTEGER,
 });
 
 export default Company;

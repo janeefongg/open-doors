@@ -57,10 +57,6 @@ const Review = sequelize.define('reviews', {
       max    : 5,
     },
   },
-  // yes or no
-  'dental-benefits' : Sequelize.INTEGER,
-  'medical-benefits': Sequelize.INTEGER,
-  'vision-benefits' : Sequelize.INTEGER,
 });
 
 export default Review;
