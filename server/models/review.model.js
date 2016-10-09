@@ -57,14 +57,6 @@ const Review = sequelize.define('reviews', {
       max    : 5,
     },
   },
-  'men-to-women-ratio': {
-    type    : Sequelize.INTEGER,
-    validate: {
-      notNull: true,
-      min    : 1,
-      max    : 5,
-    },
-  },
   // yes or no
   'dental-benefits' : Sequelize.INTEGER,
   'medical-benefits': Sequelize.INTEGER,
