@@ -40,6 +40,7 @@
     "jest": "15.1.1",
     "json-loader": "0.5.4",
     "karma": "^1.3.0",
+    "node-sass": "^3.10.1",
     "nodemon": "^1.11.0",
     "object-assign": "4.1.0",
     "path-exists": "2.1.0",
@@ -98,5 +99,6 @@
   },
   "eslintConfig": {
     "extends": "react-app"
-  }
+  },
+  "proxy": "http://localhost:3001/"
 }
