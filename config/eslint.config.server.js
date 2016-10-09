@@ -11,6 +11,7 @@ module.exports = {
     }],
     "import/prefer-default-export": "off",
     "no-console": "off",
-    "new-cap": "off"
+    "new-cap": "off",
+    "quote-props": "off"
   }
 }
