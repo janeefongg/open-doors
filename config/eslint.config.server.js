@@ -12,6 +12,7 @@ module.exports = {
     "import/prefer-default-export": "off",
     "no-console": "off",
     "new-cap": "off",
-    "quote-props": "off"
+    "quote-props": "off",
+    "no-param-reassign": "off",
   }
 }
