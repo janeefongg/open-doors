@@ -1,6 +1,6 @@
 import Sequelize from 'sequelize';
 import { promisify } from 'bluebird';
-import { hash } from 'bcrypt-nodejs';
+import { hash } from 'bcrypt';
 import sequelize from '../db/db';
 
 const hashPassword = promisify(hash);
@@ -23,20 +23,17 @@ const User = sequelize.define('users', {
     allowNull: false,
   },
 }, {
-  // we use instance methods for abstracting common tasks on a model
-  instanceMethods: {
-
-    hashPassword: async (password) => {
-      // this binding is being thrown off here
+  // we use hooks for injecting common tasks to model events
+  hooks: {
+    beforeCreate: async (user) => {
       try {
-        const hashedPw = await hashPassword(password, null, null);
-        this.password = hashedPw;
+        user.password = await hashPassword(user.password, 2);
+        return sequelize.Promise.resolve(user);
       } catch (err) {
-        console.log('error hashing password. err = ', err.toString());
+        return sequelize.Promise.reject(err);
       }
     },
   },
-
 });
 
 export default User;

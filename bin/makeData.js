@@ -69,11 +69,11 @@ var Company = models.Company;
 
 // make users
 users.forEach(function(userObj) {
-  // edit here, i don't know what i'm doing.
-  const user = User.build(userObj);
-  user.hashPassword(userObj.password)
-    .then(function() {
-      user.save();
+  User.create(userObj)
+    .then(function(user) {
+      console.log('success creating user');
+    })
+    .catch(function(err) {
+      console.log('error creaitng user. err = ', err);
     });
-  // ---------------
 });
