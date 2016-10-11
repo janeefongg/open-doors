@@ -3,8 +3,10 @@ import User from '../models/user.model';
 import secret from '../config';
 
 function tokenForUser(user) {
+  console.log('user object', user);
   const timestamp = new Date().getTime();
-  const userId = JSON.parse(user).id.toString();
+  // const userId = JSON.parse(user).id.toString();
+  const userId = user.id.toString();
   return jwt.encode({ sub: userId, iat: timestamp }, secret.secret);
 }
 
@@ -44,7 +46,9 @@ exports.signup = (req, res, next) => {
 
     User.create(user)
       .then((response) => {
-        res.json({ token: tokenForUser(JSON.stringify(response)) });
+        console.log('this is response after creating', JSON.stringify(response));
+        const userObj = JSON.stringify(response);
+        res.json({ token: tokenForUser(JSON.parse(userObj)) });
       })
       .catch(err => next(err)
       );

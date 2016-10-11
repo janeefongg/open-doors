@@ -36,12 +36,12 @@ const User = sequelize.define('users', {
       }
     },
   },
-}, {
   instanceMethods: {
     checkPassword: (inputPass, hashedPass) => comparePassword(inputPass, hashedPass),
   },
+},
 
-});
+);
 
 
 export default User;

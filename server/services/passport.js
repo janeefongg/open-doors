@@ -11,6 +11,7 @@ const localLogin = new LocalStrategy(localOptions, (email, password, done) => {
   // verify this username and password, call done with the user
   // if it is the correct email and password
   // otherwise, call done with false
+  console.log('User model', User);
 
   User.findAll({
     where: {
@@ -18,21 +19,32 @@ const localLogin = new LocalStrategy(localOptions, (email, password, done) => {
     },
   })
     .then((user) => {
+      console.log('user instance', user[0].password, password);
       if (!user) {
         return done(null, false);
       }
 
-      User.comparePassword(password, (err, isMatch) => {
-        if (err) {
-          return done(err);
-        }
-
-        if (!isMatch) {
-          return done(null, false);
-        }
-
-        return done(null, user);
-      });
+      user[0].checkPassword(password, user[0].password)
+        .then((isMatch) => {
+          if (!isMatch) { return done(null, false); }
+          console.log('inside checkpassword', JSON.stringify(user));
+          const userObj = JSON.stringify(user);
+          console.log('userObj at 0', JSON.parse(userObj)[0]);
+          return done(null, JSON.parse(userObj)[0]);
+        })
+        .catch(err => done(err));
+      // user[0].checkPassword(password, user[0].password, (err, isMatch) => {
+      //   console.log('inside checkpassword', err, isMatch);
+      //   if (err) {
+      //     return done(err);
+      //   }
+      //
+      //   if (!isMatch) {
+      //     return done(null, false);
+      //   }
+      //   console.log('password matched!');
+      //   return done(null, user);
+      // });
     })
     .catch((err) => {
       done(err);
