@@ -1,9 +1,11 @@
 import Sequelize from 'sequelize';
 import { promisify } from 'bluebird';
-import { hash } from 'bcrypt';
+import { hash, compare } from 'bcrypt';
 import sequelize from '../db/db';
 
 const hashPassword = promisify(hash);
+const comparePassword = promisify(compare);
+
 
 const User = sequelize.define('users', {
   username: {
@@ -34,6 +36,12 @@ const User = sequelize.define('users', {
       }
     },
   },
+}, {
+  instanceMethods: {
+    checkPassword: (inputPass, hashedPass) => comparePassword(inputPass, hashedPass),
+  },
+
 });
+
 
 export default User;
