@@ -5,7 +5,6 @@ import secret from '../config';
 function tokenForUser(user) {
   console.log('user object', user);
   const timestamp = new Date().getTime();
-  // const userId = JSON.parse(user).id.toString();
   const userId = user.id.toString();
   return jwt.encode({ sub: userId, iat: timestamp }, secret.secret);
 }
