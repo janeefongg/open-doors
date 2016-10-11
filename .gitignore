@@ -16,3 +16,7 @@ npm-debug.log
 
 # config files
 server/db/config.js
+server/config.js
+
+# webstorm files
+*.idea
