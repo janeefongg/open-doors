@@ -3,7 +3,6 @@ import User from '../models/user.model';
 import secret from '../config';
 
 function tokenForUser(user) {
-  console.log('user object', user);
   const timestamp = new Date().getTime();
   const userId = user.id.toString();
   return jwt.encode({ sub: userId, iat: timestamp }, secret.secret);
@@ -30,7 +29,6 @@ exports.signup = (req, res, next) => {
       email,
     },
   }).then((existingUser) => {
-    console.log('existing user', existingUser);
     // if a user with email does exist, return error
     if (existingUser.length > 0) {
       return res.status(422).send({ error: 'Email is in use' });
@@ -45,7 +43,6 @@ exports.signup = (req, res, next) => {
 
     User.create(user)
       .then((response) => {
-        console.log('this is response after creating', JSON.stringify(response));
         const userObj = JSON.stringify(response);
         res.json({ token: tokenForUser(JSON.parse(userObj)) });
       })
