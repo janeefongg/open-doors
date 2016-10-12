@@ -66,7 +66,11 @@
     "body-parser": "^1.15.2",
     "bootstrap": "^3.3.7",
     "express": "^4.14.0",
+    "jwt-simple": "^0.5.0",
     "mysql": "^2.11.1",
+    "passport": "^0.3.2",
+    "passport-jwt": "^2.1.0",
+    "passport-local": "^1.0.0",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-router": "^2.8.1",
@@ -106,5 +110,5 @@
     "testEnvironment": "node",
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(js|jsx)$"
   },
-  "proxy": "http://localhost:3001/"
+  "proxy": "http://localhost:3001"
 }

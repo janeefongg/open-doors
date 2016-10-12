@@ -14,5 +14,6 @@ module.exports = {
     "new-cap": "off",
     "quote-props": "off",
     "no-param-reassign": "off",
+    "consistent-return": "off"
   }
 }
