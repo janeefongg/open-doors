@@ -1,13 +1,19 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import sequelize from './db/db';
-import userRouter from './routes/index';
+import {
+  authRouter,
+  companiesRouter,
+  } from './routes/';
 
 const app = express();
 const port = 3001;
 
 app.use(bodyParser.json());
-app.use('/api/auth', userRouter);
+
+// set up HTTP endpoints
+app.use('/api/auth', authRouter);
+app.use('/api/companies', companiesRouter);
 
 (async () => {
   try {
