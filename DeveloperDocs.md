@@ -6,12 +6,12 @@
 
 ```
 /api/auth/signin {POST}
-  Expected Body:
+  Expected Body
     email   : STRING
     password: STRING
   
 /api/auth/signup {POST}
-  Expected Body:
+  Expected Body
     username: STRING
     email   : STRING
     password: STRING
@@ -23,9 +23,18 @@ Retrieving a list of companies:
 
 ```
 /api/companies {GET}
-  Expected Query Params:
+  Expected Query Params
     N/A
-  Expected Response:
+  Expected Response
     success: BOOLEAN
     result : ARRAY<OBJECT>
+```
+
+Creating a new company:
+
+```
+/api/companies {POST}
+  Expected Body
+    name   : STRING
+    address: STRING
 ```
