@@ -86,7 +86,7 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "server": "nodemon bin/entry.js --exec 'npm run lint:server && node'",
+    "server": "nodemon bin/entry.js --exec 'npm run lint:server --silent && node'",
     "schema": "node bin/schema.js",
     "makeData": "node bin/makeData.js",
     "lint:client": "eslint -c config/eslint.config.client.js src/**/*.js",

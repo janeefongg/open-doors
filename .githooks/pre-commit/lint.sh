@@ -1,2 +1,2 @@
-npm run lint:client
-npm run lint:server
+npm run lint:client --silent
+npm run lint:server --silent
