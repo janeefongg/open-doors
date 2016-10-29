@@ -28,9 +28,9 @@ const User = sequelize.define('users', {
    *  We use hooks for injecting required tasks to model events to conceal necessary
    *  tasks for database related calls, such as hashing a password before creating
    *  a user entry.
-   * 
+   *
    *  Each hook behaves synchronously unless we define a second 'cb' parameter or return a promise.
-   *  
+   *
    *  If asynchronous, the next lifecycle event will wait until the 'cb' is called,
    *  or the returned promise is resolved/rejected.
    */
@@ -48,7 +48,7 @@ const User = sequelize.define('users', {
   instanceMethods: {
     /**
      *  checkPassword: Promise<boolean>
-     *  
+     *
      *  comparePassword is a promisifed version of the bcrypt.compare function
      *  it resolves to a boolean value.
      *  https://www.npmjs.com/package/bcrypt#to-check-a-password
