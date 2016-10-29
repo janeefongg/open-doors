@@ -19,6 +19,7 @@ export const fetchCompanies = async (req, res) => {
 export const postCompany = async (req, res) => {
   try {
     const { name, address } = req.body;
+    // validate request body data
     if (!name || !address) {
       res.status(500)
         .json({
@@ -26,13 +27,14 @@ export const postCompany = async (req, res) => {
           message: 'Please provide both name and address of company',
         });
     }
-    const exists = await Company.findOne({ where: { name } });
-    if (exists !== null) {
+    // if company exists
+    if (await Company.findOne({ where: { name } }) !== null) {
       res.status(500)
         .json({
           success: false,
           message: 'That company already exists!',
         });
+    // otherwise, make company
     } else {
       const { id } = await Company.create({ name, address });
       res.json({
