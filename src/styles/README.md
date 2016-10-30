@@ -23,7 +23,7 @@ Example:
 
 Use the `palette` function to retrieve a color from the preset color scheme.
 
-```
+```scss
 .someClass {
   color: palette("accent-pink");
   background-color: palette("darkgray");
@@ -40,11 +40,11 @@ accent-pink
 accent-blue
 ```
 
-**When using the palette function, be sure to surround the color names with `""` so that the standard HTML color names (like `white`, `gray`, `darkgray`) do not get interprolated into Hex values.**
+**NOTE: When using the palette function, be sure to surround the color names with `""` so that the standard HTML color names (like `white`, `gray`, `darkgray`) do not get interprolated into Hex values.**
 
 In addition, the `palette` function accepts a positive or negative integer as the second argument.
 
-```
+```scss
 palette("accent-blue", 10); // @returns "accent-blue" at 10% lighter
 palette("accent-blue", -10); // @returns "accent-blue" at -10% lighter
 ```
