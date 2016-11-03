@@ -1,7 +1,34 @@
 import { Company } from '../models';
 
 export const fetchCompanies = async (req, res) => {
+  // GET /api/companies/?id,name
+  // GET /api/companies
+  const { id, name } = req.query;
+
   try {
+    // if id or name is provided, fetch a single company
+    if (id || name) {
+      let company;
+      if (id) {
+        company = await Company.findById(id);
+      } else {
+        company = await Company.findOne({ where: { name } });
+      }
+      if (company) {
+        res.json({
+          success: true,
+          result : company.toJSON(),
+        });
+      } else {
+        res.json({
+          success: false,
+          message: 'Company does not exist',
+        });
+      }
+      return;
+    }
+
+    // otherwise fetch all
     const companies = await Company.findAll();
     res.json({
       success: true,
@@ -17,8 +44,10 @@ export const fetchCompanies = async (req, res) => {
 };
 
 export const postCompany = async (req, res) => {
+  // POST /api/company
   try {
     const { name, address } = req.body;
+    // validate request body data
     if (!name || !address) {
       res.status(500)
         .json({
@@ -26,13 +55,14 @@ export const postCompany = async (req, res) => {
           message: 'Please provide both name and address of company',
         });
     }
-    const exists = await Company.findOne({ where: { name } });
-    if (exists !== null) {
+    // if company exists
+    if (await Company.findOne({ where: { name } }) !== null) {
       res.status(500)
         .json({
           success: false,
           message: 'That company already exists!',
         });
+    // otherwise, make company
     } else {
       const { id } = await Company.create({ name, address });
       res.json({
