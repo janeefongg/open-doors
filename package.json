@@ -66,7 +66,7 @@
     "bcrypt": "^0.8.7",
     "bluebird": "^3.4.6",
     "body-parser": "^1.15.2",
-    "bootstrap": "^3.3.7",
+    "bootstrap-grid": "^2.0.1",
     "express": "^4.14.0",
     "jwt-simple": "^0.5.0",
     "mysql": "^2.11.1",
