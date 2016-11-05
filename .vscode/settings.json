@@ -1,4 +1,6 @@
 {
   "javascript.validate.enable": false,
-  "scss.validate": false
+  "scss.validate": false,
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2
 }
