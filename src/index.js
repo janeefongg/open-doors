@@ -1,7 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import App from './App';
-import { Router, Route, browserHistory } from 'react-router'
+import Root from './components/Root';
 
 // vendor css
 import 'bootstrap-grid/dist/grid.css';
@@ -9,10 +8,7 @@ import 'bootstrap-grid/dist/grid.css';
 // authored scss
 import './index.scss';
 
-render((
-  <Router history={browserHistory}>
-    <Route path="/" component={App} />
-  </Router>
-),
+render(
+  <Root />,
   document.getElementById('root')
 );
