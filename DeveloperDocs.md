@@ -27,8 +27,14 @@ Retrieving a company or list of companies:
     id  : company id
     name: company name
   Expected Response
-    success: BOOLEAN
-    result : ARRAY<OBJECT>
+    One Company
+      success: BOOLEAN
+      result :
+        company: OBJECT
+        reviews: ARRAY<OBJECT>
+    All Companies
+      success: BOOLEAN
+      result : ARRAY<OBJECT>
 ```
 
 Creating a new company:
