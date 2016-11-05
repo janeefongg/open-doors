@@ -1,11 +1,4 @@
-// base scheme
-$_base: (
-  "white": #FAFAFB,
-  "gray": #F1F2F3,
-  "darkgray": #404B5A,
-  "accent-blue": #00C1DD,
-  "accent-pink": #FB7581
-);
+@import './vars';
 
 @function palette($palette, $tone: 0) {
   /**
@@ -15,7 +8,7 @@ $_base: (
    *  @param {string} : palette
    *  @param {integer} : tone
    */
-  $color: map-get($_base, $palette);
+  $color: map-get($_colors, $palette);
 
   @if ($tone > 0) {
     @return lighten($color, $tone * 1%);
