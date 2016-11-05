@@ -58,10 +58,10 @@ Media queries should be written using the `mq` mixin defined in `src/styles/mixi
 The `mq` mixin uses the `$_breakpoints` map defined inside of `src/styles/mixins/_vars.scss`. The available sizes that are accepted in the `mq` mixin are:
 
 ```
-short:  480px
-tall:   768px
+short : 480px
+tall  : 768px
 grande: 1028px
-venti:  1200px
+venti : 1200px
 ```
 
 **Example usage:**

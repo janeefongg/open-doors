@@ -1,16 +1,16 @@
 // base color scheme:
 $_colors: (
-  "white": #FAFAFB,
-  "gray": #F1F2F3,
-  "darkgray": #404B5A,
+  "white"      : #FAFAFB,
+  "gray"       : #F1F2F3,
+  "darkgray"   : #404B5A,
   "accent-blue": #00C1DD,
   "accent-pink": #FB7581
 );
 
 // media query breakpoints:
 $_breakpoints: (
-  short: 480px,
-  tall: 768px,
+  short : 480px,
+  tall  : 768px,
   grande: 1028px,
-  venti: 1200px
+  venti : 1200px
 );
