@@ -23,6 +23,8 @@ Example:
 
 Use the `palette` function to retrieve a color from the preset color scheme.
 
+The preset color scheme is defined inside of `src/styles/_vars.scss`.
+
 ```scss
 .someClass {
   color: palette("accent-pink");
@@ -48,3 +50,43 @@ In addition, the `palette` function accepts a positive or negative integer as th
 palette("accent-blue", 10); // @returns "accent-blue" at 10% lighter
 palette("accent-blue", -10); // @returns "accent-blue" at -10% lighter
 ```
+
+## Media Queries
+
+Media queries should be written using the `mq` mixin defined in `src/styles/mixins/_mq.scss`, and they should be written within the component directly for clarity:
+
+The `mq` mixin uses the `$_breakpoints` map defined inside of `src/styles/mixins/_vars.scss`. The available sizes that are accepted in the `mq` mixin are:
+
+```
+short : 480px
+tall  : 768px
+grande: 1028px
+venti : 1200px
+```
+
+**Example usage:**
+
+```scss
+// someComponent.scss
+.logo {
+  font-size: 14px;
+
+  @include mq(short) {
+    font-size: 16px;
+  }
+
+  @include mq(tall) {
+    font-size: 18px;
+  }
+
+  @include mq(grande) {
+    font-size: 22px;
+  }
+
+  @include mq(venti) {
+    font-size: 26px;
+  }
+}
+```
+
+Use the `mq` mixin to include a specific media query for a component style.
