@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import { Provider } from 'react-redux';
 import { Router, Route, browserHistory } from 'react-router';
@@ -12,7 +13,7 @@ const Root = () => (
     <Router history={browserHistory}>
       <Route path="/" component={App}>
       </Route>
-      <Route path="/reviews" component={SearchCompany}>
+      <Route path="/search" component={SearchCompany}>
       </Route>
     </Router>
   </Provider>
