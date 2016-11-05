@@ -15,9 +15,14 @@ export const fetchCompanies = async (req, res) => {
         company = await Company.findOne({ where: { name } });
       }
       if (company) {
+        // fetch reviews for that company
+        const reviews = await company.getReviews();
         res.json({
           success: true,
-          result : company.toJSON(),
+          result : {
+            company: company.toJSON(),
+            reviews: reviews.map(review => review.toJSON()),
+          },
         });
       } else {
         res.json({
@@ -28,7 +33,7 @@ export const fetchCompanies = async (req, res) => {
       return;
     }
 
-    // otherwise fetch all
+    // otherwise fetch all companies
     const companies = await Company.findAll();
     res.json({
       success: true,
