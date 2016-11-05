@@ -1,0 +1,21 @@
+// google fonts
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Merriweather:400,700');
+
+@import './vars';
+
+html {
+  font-size: $_base-font-size;
+  font-family: 'Merriweather', Georgia, serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Lato';
+  font-weight: 400;
+}
+
+// adds font-size rule for each element in $_font-sizes map
+@each $element, $size in $_font-sizes {
+  #{$element} {
+    font-size: $size;
+  }
+}

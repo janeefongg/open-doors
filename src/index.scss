@@ -1,14 +1,7 @@
-// google fonts
-@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Merriweather:400,700');
+@import './styles/typography';
 
-// authored global styles
+// globals
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Merriweather', Georgia, serif;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Lato';
-  font-weight: 700;
 }
