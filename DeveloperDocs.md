@@ -19,12 +19,13 @@
 
 ### Companies
 
-Retrieving a list of companies:
+Retrieving a company or list of companies:
 
 ```
 /api/companies {GET}
-  Expected Query Params
-    N/A
+  Optional Query Params
+    id  : company id
+    name: company name
   Expected Response
     success: BOOLEAN
     result : ARRAY<OBJECT>
