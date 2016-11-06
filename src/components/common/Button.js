@@ -16,7 +16,7 @@ const Button = (props: Props) => {
 }
 
 Button.defaultProps = {
-  customClass: "btn"
+  customClass: "btn",
 }
 
 export default Button;
