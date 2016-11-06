@@ -1,18 +1,22 @@
+// @flow
 import React from 'react';
 import { Provider } from 'react-redux';
 import { Router, Route, browserHistory } from 'react-router';
 import configureStore from '../configureStore';
-import App from '../App';
-import SearchCompany from './SearchCompany';
+import Splash from './splash';
+import SearchCompany from './search-company';
+import CompanyProfile from './company-profile';
 
 const store = configureStore();
 
 const Root = () => (
   <Provider store={store}>
     <Router history={browserHistory}>
-      <Route path="/" component={App}>
+      <Route path="/" component={Splash}>
       </Route>
-      <Route path="/reviews" component={SearchCompany}>
+      <Route path="/search" component={SearchCompany}>
+      </Route>
+      <Route path="/company" component={CompanyProfile}>
       </Route>
     </Router>
   </Provider>
