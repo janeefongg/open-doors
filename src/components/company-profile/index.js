@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from 'react';
-import './company.scss';
+// import './company.scss';
 
 class CompanyProfile extends Component {
   render() {
