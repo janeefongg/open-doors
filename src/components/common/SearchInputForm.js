@@ -38,10 +38,10 @@ class SearchInputForm extends Component {
   render() {
     return (
       <div className={this.props.customClass}>
-        <div className="search-input-label">
+        <div className='search-input-label'>
           {this.props.label}
         </div>
-        <input ref="searchInput" type="text" onChange={this.handleOnChange} placeholder={this.props.defaultInput} />
+        <input ref='searchInput' type='text' onChange={this.handleOnChange} placeholder={this.props.defaultInput} />
       </div>
     );
   }

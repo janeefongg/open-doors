@@ -36,21 +36,21 @@ class SearchBoxContainer extends Component {
 
   render() {
     return (
-      <div className="search-box-container">
-        <div className="row center-xs">
-          <div className="col-xs-12">
+      <div className='search-box-container'>
+        <div className='row center-xs'>
+          <div className='col-xs-12'>
             <h5>Search for a company</h5>
           </div>
         </div>
-        <div className="row middle-xs center-xs">
-          <div className="col-xs-5">
-            <SearchInputForm label={'What company'} handleInputChange={this.handleInputChange} />
+        <div className='row middle-xs center-xs'>
+          <div className='col-xs-5'>
+            <SearchInputForm label='What company' handleInputChange={this.handleInputChange} />
           </div>
-          <div className="col-xs-5">
-            <SearchInputForm label={'Where (city, state, or zip)'} handleInputChange={this.handleInputChange} />
+          <div className='col-xs-5'>
+            <SearchInputForm label='Where (city, state, or zip)' handleInputChange={this.handleInputChange} />
           </div>
-          <div className="col-xs-2">
-            <Button handleOnClick={this.handleOnClick} text={"Search"} />
+          <div className='col-xs-2'>
+            <Button handleOnClick={this.handleOnClick} text='Search' />
           </div>
         </div>
       </div>
