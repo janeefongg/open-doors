@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 type Props = {
   defaultInput: string,
-  handleInputChange: Function,
+  handleInputChange: function,
   customClass: string,
   label: string
 }
