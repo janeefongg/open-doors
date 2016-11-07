@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 
 type Props = {
   defaultInput: string,
-  handleInputChange: Function
+  handleInputChange: Function,
+  customClass: string
 }
 
 class SearchInputForm extends Component {
@@ -13,9 +14,10 @@ class SearchInputForm extends Component {
     currentInput: string,
   }
 
-  static defaultProps: { defaultInput: '' };
+  static defaultProps: { defaultInput: '', customClass: 'search-input-container' };
 
   handleOnChange: () => void;
+  setCustomClass: () => string;
 
   constructor(props: Props) {
     super(props);
@@ -34,13 +36,16 @@ class SearchInputForm extends Component {
 
   render() {
     return (
-      <input ref="searchInput" type="text" onChange={this.handleOnChange} placeholder={this.props.defaultInput} />
+      <div className={this.props.customClass}>
+        <input ref="searchInput" type="text" onChange={this.handleOnChange} placeholder={this.props.defaultInput} />
+      </div>
     );
   }
 }
 
 SearchInputForm.defaultProps = {
   defaultInput: '',
+  customClass: 'search-input-container'
 }
 
 export default SearchInputForm;
