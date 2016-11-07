@@ -4,7 +4,8 @@ import React, { Component } from 'react';
 type Props = {
   defaultInput: string,
   handleInputChange: Function,
-  customClass: string
+  customClass: string,
+  label: string
 }
 
 class SearchInputForm extends Component {
@@ -37,6 +38,9 @@ class SearchInputForm extends Component {
   render() {
     return (
       <div className={this.props.customClass}>
+        <div className="search-input-label">
+          {this.props.label}
+        </div>
         <input ref="searchInput" type="text" onChange={this.handleOnChange} placeholder={this.props.defaultInput} />
       </div>
     );
@@ -45,7 +49,7 @@ class SearchInputForm extends Component {
 
 SearchInputForm.defaultProps = {
   defaultInput: '',
-  customClass: 'search-input-container'
+  customClass : 'search-input-container',
 }
 
 export default SearchInputForm;
