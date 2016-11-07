@@ -4,26 +4,51 @@ import SearchInputForm from '../common/SearchInputForm';
 import Button from '../common/Button';
 
 class SearchBoxContainer extends Component {
+  state: { numOfValidInputFields: number }
 
-  handleClick: () => void;
+  handleOnClick: () => void;
+  handleInputChange: () => void;
 
   constructor() {
     super()
-
-    this.handleClick = this.handleClick.bind(this);
+    this.state = {
+      numOfValidInputFields: 0,
+    }
+    this.handleOnClick = this.handleOnClick.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
 
-  handleClick() {
-    console.log('Clicked!');
+  handleOnClick() {
+    if(this.state.numOfValidInputFields) {
+      console.log('Search for a company!');
+    } else {
+      console.error('Fields left blank...');
+    }
+  }
+
+  handleInputChange(defaultInput: string, currentInput: string, hasNotChangedBefore: boolean) {
+    if(currentInput !== defaultInput && hasNotChangedBefore) {
+      this.setState({ numOfValidInputFields: ++this.state.numOfValidInputFields });
+    } else if (currentInput === defaultInput) {
+      this.setState({ numOfValidInputFields: --this.state.numOfValidInputFields });
+    }
   }
 
   render() {
     return (
-      <div>
-        SearchBoxContainer
-        <SearchInputForm />
-        <SearchInputForm />
-        <Button handleClick={this.handleClick} text={"Search"} />
+      <div className="search-box-container">
+        <div className="row center-xs">
+          <div className="col-xs-12">
+            <h5>Search for a company</h5>
+          </div>
+        </div>
+        <div className="row center-xs">
+          <div className="col-xs-12">
+            <SearchInputForm handleInputChange={this.handleInputChange} />
+            <SearchInputForm handleInputChange={this.handleInputChange} />
+            <Button handleOnClick={this.handleOnClick} text={"Search"} />
+          </div>
+        </div>
       </div>
     );
   }
