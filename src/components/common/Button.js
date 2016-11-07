@@ -3,7 +3,7 @@ import React from 'react';
 
 type Props = {
   text: string,
-  handleOnClick: function,
+  handleOnClick: Function,
 }
 
 const Button = (props: Props) => {
