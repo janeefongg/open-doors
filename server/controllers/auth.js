@@ -9,12 +9,10 @@ function tokenForUser(user) {
 }
 
 exports.signin = (req, res) => {
-  // User has already has their email and password authenticated
-  // we just need to give them a token
   res.send({ token: tokenForUser(req.user) });
 };
 
-exports.signup = (req, res, next) => {
+exports.signup = async (req, res, next) => {
   const email = req.body.email;
   const password = req.body.password;
   const username = req.body.username;
@@ -23,31 +21,30 @@ exports.signup = (req, res, next) => {
     return res.status(422).send({ error: 'You must provide email and password' });
   }
 
-  // see if a user with a given email exists
-  return User.findAll({
-    where: {
-      email,
-    },
-  }).then((existingUser) => {
-    // if a user with email does exist, return error
-    if (existingUser.length > 0) {
+  try {
+    const userResponse = await User.findAll({
+      where: {
+        email,
+      },
+    });
+
+    if (userResponse.length > 0) {
       return res.status(422).send({ error: 'Email is in use' });
     }
 
-    // is a user with email does NOT exist, create and save user record
     const user = {
       username,
       email,
       password,
     };
 
-    User.create(user)
-      .then((response) => {
-        const userObj = JSON.stringify(response);
-        res.json({ token: tokenForUser(JSON.parse(userObj)) });
-      })
-      .catch(err => next(err)
-      );
-  }).catch(err => next(err)
-  );
+    const createUser = await User.create(user);
+
+    if (createUser) {
+      const userObj = JSON.stringify(createUser);
+      res.json({ token: tokenForUser(JSON.parse(userObj)) });
+    }
+  } catch (err) {
+    next(err);
+  }
 };
