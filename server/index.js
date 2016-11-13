@@ -4,6 +4,7 @@ import sequelize from './db/db';
 import {
   authRouter,
   companiesRouter,
+  reviewsRouter,
   } from './routes/';
 
 const app = express();
@@ -14,6 +15,7 @@ app.use(bodyParser.json());
 // set up HTTP endpoints
 app.use('/api/auth', authRouter);
 app.use('/api/companies', companiesRouter);
+app.use('/api/reviews', reviewsRouter);
 
 (async () => {
   try {
