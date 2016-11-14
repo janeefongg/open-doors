@@ -2,41 +2,41 @@ import Sequelize from 'sequelize';
 import sequelize from '../db/db';
 
 const Company = sequelize.define('companies', {
-  'name': {
+  name: {
     type     : Sequelize.STRING,
     allowNull: false,
     unique   : true,
   },
-  'address': {
+  address: {
     type     : Sequelize.TEXT,
     allowNull: false,
   },
-  'overall-rating': {
+  overallRating: {
     type        : Sequelize.INTEGER,
     defaultValue: 0,
   },
   // average rating between 000~500, to be converted to decimal later
-  'interactions': {
+  interactions: {
     type        : Sequelize.INTEGER,
     defaultValue: 0,
   },
-  'harassment': {
+  harassment: {
     type        : Sequelize.INTEGER,
     defaultValue: 0,
   },
-  'advancement': {
+  advancement: {
     type        : Sequelize.INTEGER,
     defaultValue: 0,
   },
-  'family-support': {
+  familySupport: {
     type        : Sequelize.INTEGER,
     defaultValue: 0,
   },
-  'work-life-balance': {
+  workLifeBalance: {
     type        : Sequelize.INTEGER,
     defaultValue: 0,
   },
-  'equal-pay': {
+  equalPay: {
     type        : Sequelize.INTEGER,
     defaultValue: 0,
   },

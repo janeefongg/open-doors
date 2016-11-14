@@ -2,12 +2,12 @@ import Sequelize from 'sequelize';
 import sequelize from '../db/db';
 
 const Review = sequelize.define('reviews', {
-  'message': {
+  message: {
     type     : Sequelize.TEXT,
     allowNull: false,
   },
   // ratings (1-5)
-  'interactions': {
+  interactions: {
     type     : Sequelize.INTEGER,
     allowNull: false,
     validate : {
@@ -15,7 +15,7 @@ const Review = sequelize.define('reviews', {
       max: 5,
     },
   },
-  'harassment': {
+  harassment: {
     type     : Sequelize.INTEGER,
     allowNull: false,
     validate : {
@@ -23,7 +23,7 @@ const Review = sequelize.define('reviews', {
       max: 5,
     },
   },
-  'advancement': {
+  advancement: {
     type     : Sequelize.INTEGER,
     allowNull: false,
     validate : {
@@ -31,7 +31,7 @@ const Review = sequelize.define('reviews', {
       max: 5,
     },
   },
-  'family-support': {
+  familySupport: {
     type     : Sequelize.INTEGER,
     allowNull: false,
     validate : {
@@ -39,7 +39,7 @@ const Review = sequelize.define('reviews', {
       max: 5,
     },
   },
-  'work-life-balance': {
+  workLifeBalance: {
     type     : Sequelize.INTEGER,
     allowNull: false,
     validate : {
@@ -47,7 +47,7 @@ const Review = sequelize.define('reviews', {
       max: 5,
     },
   },
-  'equal-pay': {
+  equalPay: {
     type     : Sequelize.INTEGER,
     allowNull: false,
     validate : {
