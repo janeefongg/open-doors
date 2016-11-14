@@ -1,11 +1,40 @@
 import { Company } from '../models';
 
 export const fetchCompanies = async (req, res) => {
-  // GET /api/companies/?id,name
+  // GET /api/companies/?id,name,search
   // GET /api/companies
-  const { id, name } = req.query;
+  const { id, name, search } = req.query;
 
   try {
+    // find relevant companies for search param
+    if (search) {
+      // validate search query input
+      const validatedSearch = search.replace(/\s\s+/g, ' ').trim().split(' ');
+      const companies = await Company.findAll({
+        where: {
+          /**
+           *  For doing a WHERE query for multiple keywords, we use the $or operator.
+           *
+           *  @url http://docs.sequelizejs.com/en/latest/docs/querying/#where
+           *
+           *  $or expects an array of objects.
+           *  Each object has the format:
+           *  {
+           *    COLUMN_NAME: {
+           *      $like: '%KEYWORD%'
+           *    }
+           *  }
+           */
+          $or: validatedSearch.map(str => ({ name: { $like: `%${str}%` } })),
+        },
+      });
+      res.json({
+        success: true,
+        result : companies,
+      });
+      return;
+    }
+
     // if id or name is provided, fetch a single company
     if (id || name) {
       let company;
