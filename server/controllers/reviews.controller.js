@@ -1,6 +1,51 @@
-// import { Review } from '../models';
+import { Review } from '../models';
+import { getColumns, validateBody } from '../services/controllerHelpers';
 
-export const postReview = (req, res) => {
-  console.log('req.body = ', req.body);
-  res.json({});
+export const validateReview = async (req, res, next) => {
+  try {
+    const requiredParams = await getColumns('Review');
+    requiredParams.push('companyId');
+    if (validateBody(req, requiredParams)) {
+      next();
+    } else {
+      throw new Error(`invalid parameters. required parameters = ${requiredParams.join(', ')}`);
+    }
+  } catch (e) {
+    res.json({
+      success: false,
+      message: e.toString(),
+    });
+  }
+};
+
+export const postReview = async (req, res) => {
+  try {
+    const {
+      message,
+      interactions,
+      harassment,
+      advancement,
+      familySupport,
+      workLifeBalance,
+      equalPay,
+    } = req.body;
+    const review = await Review.create({
+      message,
+      interactions,
+      harassment,
+      advancement,
+      familySupport,
+      workLifeBalance,
+      equalPay,
+    });
+    res.json({
+      success: true,
+      review : review.toJSON(),
+    });
+  } catch (e) {
+    res.json({
+      success: false,
+      message: e.toString(),
+    });
+  }
 };

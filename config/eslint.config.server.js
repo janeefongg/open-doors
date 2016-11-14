@@ -5,7 +5,7 @@ module.exports = {
       "align": "colon"
     }],
     "no-multi-spaces": ["error", {
-      "exceptions": { 
+      "exceptions": {
         "VariableDeclarator": true
       }
     }],
@@ -14,6 +14,7 @@ module.exports = {
     "new-cap": "off",
     "quote-props": "off",
     "no-param-reassign": "off",
-    "consistent-return": "off"
+    "consistent-return": "off",
+    "arrow-body-style": "off"
   }
 }
