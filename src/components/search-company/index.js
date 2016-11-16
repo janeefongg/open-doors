@@ -5,8 +5,7 @@ import SearchBoxContainer from './SearchBoxContainer';
 class SearchCompany extends Component {
   render() {
     return (
-      <div>
-        Search Page
+      <div className="search-page">
         <SearchBoxContainer />
       </div>
     );
