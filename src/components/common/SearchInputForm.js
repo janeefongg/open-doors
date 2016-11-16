@@ -41,7 +41,7 @@ class SearchInputForm extends Component {
         <div className='search-input-label'>
           {this.props.label}
         </div>
-        <input ref='searchInput' type='text' onChange={this.handleOnChange} placeholder={this.props.defaultInput} />
+        <input className='input-form' ref='searchInput' type='text' onChange={this.handleOnChange} placeholder={this.props.defaultInput} />
       </div>
     );
   }

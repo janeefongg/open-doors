@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import SearchInputForm from '../common/SearchInputForm';
 import Button from '../common/Button';
+import './SearchCompany.scss';
 
 class SearchBoxContainer extends Component {
   state: { numOfValidInputFields: number }
@@ -39,18 +40,22 @@ class SearchBoxContainer extends Component {
       <div className='search-box-container'>
         <div className='row center-xs'>
           <div className='col-xs-12'>
-            <h5>Search for a company</h5>
+            <h3 className='search-box-header'>Search for a company</h3>
           </div>
         </div>
-        <div className='row middle-xs center-xs'>
-          <div className='col-xs-5'>
-            <SearchInputForm label='What company' handleInputChange={this.handleInputChange} />
-          </div>
-          <div className='col-xs-5'>
-            <SearchInputForm label='Where (city, state, or zip)' handleInputChange={this.handleInputChange} />
-          </div>
-          <div className='col-xs-2'>
-            <Button handleOnClick={this.handleOnClick} text='Search' />
+        <div className='row center-xs'>
+          <div className='col-xs-12'>
+            <SearchInputForm
+              label='Company'
+              customClass='search-company'
+              handleInputChange={this.handleInputChange}
+            />
+            <SearchInputForm
+              label='Where'
+              customClass='search-location'
+              handleInputChange={this.handleInputChange}
+            />
+            <Button customClass='sml-btn' handleOnClick={this.handleOnClick} text='Search' />
           </div>
         </div>
       </div>

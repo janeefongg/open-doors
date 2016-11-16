@@ -1,0 +1,36 @@
+// buttons
+%btn {
+  border: 1px solid black;
+  display: inline-block;
+  cursor: pointer;
+  color: #FAFAFB;
+  padding: 0.5rem;
+  border-radius: 3px;
+  background-color: #FB7581;
+}
+
+.sml-btn {
+  @extend %btn;
+  width: 5rem;
+}
+
+.md-btn {
+  @extend %btn;
+  width: 10rem;
+}
+
+.lg-btn {
+  @extend %btn;
+  width: 15rem;
+}
+
+// search input forms
+.input-form {
+  height: 2.4rem;
+  border-radius: 3px;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  font-size: 1rem;
+  padding: 0 0.5rem;
+}
