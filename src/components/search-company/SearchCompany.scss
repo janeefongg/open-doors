@@ -1,0 +1,29 @@
+.search-page {
+  background-color: #FAFAFB;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-box-container {
+  background-color: #00C1DD;
+  width: 80%;
+  height: 33%;
+  border-radius: 3px;
+
+  .search-company {
+    display: inline-block;
+    margin: 0 1rem;
+  }
+
+  .search-location {
+    display: inline-block;
+    margin: 0 1rem;
+  }
+}
+
+
