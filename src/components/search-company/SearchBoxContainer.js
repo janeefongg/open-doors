@@ -40,7 +40,7 @@ class SearchBoxContainer extends Component {
       <div className='search-box-container'>
         <div className='row center-xs'>
           <div className='col-xs-12'>
-            <h3>Search for a company</h3>
+            <h3 className='search-box-header'>Search for a company</h3>
           </div>
         </div>
         <div className='row center-xs'>
