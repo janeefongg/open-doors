@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.scss';
 
+import Header from '../header/index';
+
 class Splash extends Component {
   render() {
     return (
@@ -14,6 +16,7 @@ class Splash extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
+        <Header />
       </div>
     );
   }
