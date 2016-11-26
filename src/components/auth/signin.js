@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class Signin extends Component {
+export default class SignIn extends Component {
 
   handleFormSubmit(input) {
     console.log(input);

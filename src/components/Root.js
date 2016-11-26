@@ -6,7 +6,7 @@ import configureStore from '../configureStore';
 import Splash from './splash';
 import SearchCompany from './search-company';
 import CompanyProfile from './company-profile';
-import Signin from './auth/signin';
+import SignIn from './auth/signin';
 
 const store = configureStore();
 
@@ -19,7 +19,7 @@ const Root = () => (
       </Route>
       <Route path="/company" component={CompanyProfile}>
       </Route>
-      <Route path="/signin" component={Signin}>
+      <Route path="/signin" component={SignIn}>
       </Route>
     </Router>
   </Provider>
