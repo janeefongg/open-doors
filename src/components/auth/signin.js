@@ -9,18 +9,15 @@ export default class Signin extends Component {
 
   render() {
 
-    const { fields: { email, password }, handleSubmit } = this.props;
-    console.log('this is this.props', this.props);
-
     return (
-      <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+      <form>
         <fieldset>
           <label>Email:</label>
-          <input type="text" {...email} />
+          <input type="text"  />
         </fieldset>
         <fieldset>
           <label>Password:</label>
-          <input type="text" {...password} />
+          <input type="text" />
         </fieldset>
         <button action="submit">Sign In</button>
       </form>
