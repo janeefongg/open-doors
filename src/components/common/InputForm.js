@@ -22,7 +22,7 @@ export default class AnimateInputField extends Component {
 
   render() {
     const { autoComplete, placeholder, type, id } = this.props;
-    const inputClass = classNames('fl-input-form', this.props.customClass);
+    const inputClass = classNames('fl-input-form', this.props.customClass, { 'fl-valid': this.state.hasValue });
     return (
       <div className="fl-input-container">
         <input
