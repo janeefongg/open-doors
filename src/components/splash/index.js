@@ -16,7 +16,9 @@ class Splash extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <Header />
+        <div className="login-container">
+          Login Form goes here
+        </div>
       </div>
     );
   }
