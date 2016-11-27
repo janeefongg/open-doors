@@ -12,7 +12,7 @@ class Splash extends Component {
           Sign in to Open Doors
         </p>
         <div className="row">
-          <div className="col-xs-offset-4 col-xs-4">
+          <div className="col-xs-12 col-sm-offset-4 col-sm-4">
             <div className="login-form">
               <div className="row">
                 <div className="col-xs-12">
