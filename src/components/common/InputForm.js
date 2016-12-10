@@ -1,7 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
+import { connect } from 'react-redux';
 
-export default class AnimateInputField extends Component {
+class AnimateInputField extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -16,6 +17,7 @@ export default class AnimateInputField extends Component {
     const hasValue = Boolean(e.target.value);
     this.validateField(hasValue);
     this.setState({ hasValue: hasValue });
+    this.props.saveData()
   }
 
   validateField(hasValue) {
@@ -33,8 +35,9 @@ export default class AnimateInputField extends Component {
   render() {
     const { autoComplete, placeholder, type, id } = this.props;
     const inputClass = classNames('fl-input-form', this.props.customClass, { 'fl-valid': this.state.hasValue });
+    const inputContainerClass = classNames('fl-input-container', this.props.containerClass);
     return (
-      <div className="fl-input-container">
+      <div className={inputContainerClass}>
         <input
           autoComplete={autoComplete}
           className={inputClass}
@@ -42,12 +45,14 @@ export default class AnimateInputField extends Component {
           type={type}
           onChange={this.handleOnChange}
         />
+        { this.props.children }
         <label className='fl-input-form-label' htmlFor={id}>{placeholder}</label>
         <span className='fl-input-bar'></span>
       </div>
     );
   }
 }
+
 AnimateInputField.PropTypes = {
   incrementNumOfValidAnswers: PropTypes.func.isRequired,
   decrementNumOfValidAnswers: PropTypes.func.isRequired,
@@ -59,3 +64,8 @@ AnimateInputField.defaultProps = {
   id          : 'text-box',
   placeholder : '',
 }
+
+const mapStateToProps = state => ({
+});
+
+export default connect(mapStateToProps)(AnimateInputField);
