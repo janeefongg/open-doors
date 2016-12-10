@@ -2,11 +2,7 @@
 @import '../../styles/colors';
 
 .register-container {
-  padding: 25px;
 
-  @include mq(tall) {
-    padding: 50px;
-  }
 }
 
 .register-title {
