@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import SearchInputForm from '../common/SearchInputForm';
-import Button from '../common/Button';
 import './SearchCompany.scss';
 
 class SearchBoxContainer extends Component {
@@ -34,11 +33,6 @@ class SearchBoxContainer extends Component {
       <div className='search-box-container'>
         <div className='row center-xs'>
           <div className='col-xs-12'>
-            <h3 className='search-box-header'>Search for a company</h3>
-          </div>
-        </div>
-        <div className='row center-xs'>
-          <div className='col-xs-12'>
             <SearchInputForm
               label='Company'
               customClass='search-company'
@@ -49,7 +43,6 @@ class SearchBoxContainer extends Component {
               customClass='search-location'
               handleInputChange={this.handleInputChange}
             />
-            <Button customClass='sml-btn' handleOnClick={this.handleOnClick} text='Search' />
           </div>
         </div>
       </div>
