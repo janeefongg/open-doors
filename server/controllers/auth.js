@@ -9,6 +9,7 @@ function tokenForUser(user) {
 }
 
 exports.signin = (req, res) => {
+  console.log('two');
   res.send({ token: tokenForUser(req.user) });
 };
 

@@ -11,6 +11,7 @@ const localLogin = new LocalStrategy(localOptions, async (email, password, done)
   // verify this username and password, call done with the user
   // if it is the correct email and password
   // otherwise, call done with false
+  console.log('first');
 
   try {
     const user = (await User.findAll({
