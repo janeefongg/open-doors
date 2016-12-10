@@ -1,7 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import sequelize from './db/db';
-import cors from 'cors';
 import {
   authRouter,
   companiesRouter,
@@ -12,7 +11,7 @@ const app = express();
 const port = 3001;
 
 
-app.use(cors());
+// app.use(cors());
 app.use(bodyParser.json());
 
 // set up HTTP endpoints

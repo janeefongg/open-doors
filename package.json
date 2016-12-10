@@ -69,11 +69,7 @@
     "bluebird": "^3.4.6",
     "body-parser": "^1.15.2",
     "bootstrap-grid": "^2.0.1",
-<<<<<<< Updated upstream
     "classnames": "^2.2.5",
-=======
-    "cors": "^2.8.1",
->>>>>>> Stashed changes
     "express": "^4.14.0",
     "flexboxgrid": "^6.3.1",
     "jwt-simple": "^0.5.0",
