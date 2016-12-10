@@ -1,5 +1,7 @@
 import Sequelize from 'sequelize';
+import { pick } from 'lodash';
 import sequelize from '../db/db';
+import Company from './company.model';
 
 const Review = sequelize.define('reviews', {
   message: {
@@ -56,5 +58,19 @@ const Review = sequelize.define('reviews', {
     },
   },
 });
+
+Review.hook('afterCreate', async (review) => {
+  const company = await Company.findById(review.companyId);
+  company.set('ratings', pick(review.dataValues, [
+    'interactions',
+    'harassment',
+    'advancement',
+    'familySupport',
+    'workLifeBalance',
+    'equalPay',
+  ]));
+  return sequelize.Promise.resolve();
+});
+
 
 export default Review;
