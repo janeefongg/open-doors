@@ -4,6 +4,13 @@ import Button from '../common/Button';
 // import './App.scss';
 
 class Login extends Component {
+  constructor(props) {
+    super(props);
+    this.handleOnClick = this.handleOnClick.bind(this);
+  }
+  handleOnClick() {
+
+  }
   render() {
     return (
       <div className="Login-container">
