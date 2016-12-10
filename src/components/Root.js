@@ -5,8 +5,6 @@ import { Router, Route, browserHistory } from 'react-router';
 import configureStore from '../configureStore';
 import Splash from './splash';
 import Register from './register';
-import store from '../configureStore';
-import Splash from './splash';
 import Login from './login';
 import SearchCompany from './search-company';
 import CompanyProfile from './company-profile';
