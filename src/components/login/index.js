@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import InputForm from '../common/InputForm';
 import Button from '../common/Button';
-// import './App.scss';
+import './login.scss';
+import logo from '../../assets/logo.svg';
 
 class Login extends Component {
   constructor(props) {
@@ -28,18 +29,18 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="Login-container">
+      <div className="login-container">
         <div className="row">
           <div className="col-xs-12">
             <div className="header">
-              Logo goes here
+              <img src={logo} alt="logo" />
             </div>
           </div>
         </div>
-        <div className="Login-form">
+        <div className="login-form">
           <div className="row">
             <div className="col-xs-12">
-              <h2 className="Login-title">Login</h2>
+              <h2 className="login-title">Login</h2>
             </div>
           </div>
           <div className="row">
@@ -53,7 +54,7 @@ class Login extends Component {
             </div>
           </div>
           <div className="row">
-            <div className="col-xs-12">
+            <div className="col-xs-12 button-container">
               <Button customClass='lg-btn' text='Sign In' handleOnClick={this.handleOnClick} />
             </div>
           </div>
