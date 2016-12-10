@@ -1,6 +1,7 @@
 import jwt from 'jwt-simple';
 import User from '../models/user.model';
 import secret from '../config';
+import Auth from '../services/auth';
 
 function tokenForUser(user) {
   const timestamp = new Date().getTime();
@@ -8,8 +9,23 @@ function tokenForUser(user) {
   return jwt.encode({ sub: userId, iat: timestamp }, secret.secret);
 }
 
-exports.signin = (req, res) => {
-  res.send({ token: tokenForUser(req.user) });
+exports.signin = async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    const user = (await User.findAll({
+      where: {
+        email,
+      },
+    }))[0];
+
+    if (!user || !await user.checkPassword(password, user.password)) {
+      res.status(400).send({ message: 'Incorrect username/password' });
+    }
+    res.json({ token: Auth.generateToken({ id: user.id, username: user.username }) });
+  } catch (err) {
+    res.status(400).send({ message: err });
+  }
 };
 
 exports.signup = async (req, res, next) => {

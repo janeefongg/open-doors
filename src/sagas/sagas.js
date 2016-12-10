@@ -11,12 +11,13 @@ function* postSignInUser(action) {
   };
 
   try {
-    const user = yield call(postSignIn, signInObj);
-    yield put ({type: 'USER_SUCCESS', user: user})
+    yield call(postSignIn, signInObj);
+    yield put ({ type: 'SIGNIN_SUCCESS', isSignedIn: true })
   } catch (e) {
-    yield put ({type: 'USER_FAILED', message: e.message});
+    yield put ({ type: 'SIGNIN_FAILED', isSignedIn: false });
   }
 }
+
 function* mySaga() {
   yield takeEvery('POST_SIGNIN', postSignInUser);
 }
