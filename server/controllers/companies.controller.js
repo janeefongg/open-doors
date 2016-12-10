@@ -49,7 +49,12 @@ export const fetchCompanies = async (req, res) => {
         res.json({
           success: true,
           result : {
-            company: company.toJSON(),
+            company: {
+              id     : company.id,
+              name   : company.name,
+              address: company.address,
+              ratings: company.ratings,
+            },
             reviews: reviews.map(review => review.toJSON()),
           },
         });
