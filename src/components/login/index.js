@@ -7,11 +7,6 @@ import logo from '../../assets/logo.svg';
 class Login extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      username: '',
-      password: '',
-    }
     this.handleOnClick = this.handleOnClick.bind(this);
   }
 
@@ -22,14 +17,16 @@ class Login extends Component {
     console.log('submitting login!');
   }
 
-  saveUsername() {
+  saveUsername(payload) {
     // call dispatch to save username to store
     console.log('saving!');
+    this.props.dispatch({ type: 'SAVE_USERNAME', payload });
   }
 
-  savePassword() {
+  savePassword(payload) {
     // call dispatch to save username to store
     console.log('saving!');
+    this.props.dispatch( {type: 'SAVE_PASSWORD', payload });
   }
 
   render() {
