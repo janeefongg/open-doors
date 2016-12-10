@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import InputForm from '../common/InputForm';
 import Button from '../common/Button';
-// import './App.scss';
+import './register.scss';
+import logo from '../../assets/logo.svg';
 
 class Register extends Component {
   render() {
@@ -10,7 +11,7 @@ class Register extends Component {
         <div className="row">
           <div className="col-xs-12">
             <div className="header">
-              Logo goes here
+              <img src={logo} alt="logo" />
             </div>
           </div>
         </div>
@@ -18,6 +19,7 @@ class Register extends Component {
           <div className="row">
             <div className="col-xs-12">
               <h2 className="register-title">Quick Registration</h2>
+              <h4 className="register-subtitle">It only takes a few seconds</h4>
             </div>
           </div>
           <div className="row">
@@ -46,7 +48,7 @@ class Register extends Component {
             </div>
           </div>
           <div className="row">
-            <div className="col-xs-12">
+            <div className="col-xs-12 button-container">
               <Button customClass='lg-btn' text='Sign Up' handleOnClick={this.handleOnClick} />
             </div>
           </div>

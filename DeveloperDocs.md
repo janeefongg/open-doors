@@ -47,7 +47,9 @@ Creating a new company:
     address: STRING
 ```
 
-Creating a new review:
+### reviews
+
+Creating a review:
 
 ```
 /api/reviews {POST}
