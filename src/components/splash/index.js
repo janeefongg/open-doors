@@ -1,22 +1,20 @@
 // @flow
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.scss';
-
-import Header from '../header/index';
+import LoginContainer from './LoginContainer';
 
 class Splash extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          Sign in to Open Doors
         </p>
-        <Header />
+        <div className="row">
+          <div className="col-xs-12 col-sm-offset-4 col-sm-4">
+            <LoginContainer />
+          </div>
+        </div>
       </div>
     );
   }
