@@ -1,4 +1,3 @@
-// @flow
 import React, { Component } from 'react';
 
 type Props = {
@@ -15,7 +14,7 @@ class SearchInputForm extends Component {
     currentInput: string,
   }
 
-  static defaultProps: { defaultInput: '', customClass: 'search-input-container' };
+  static defaultProps: { defaultInput: '' };
 
   handleOnChange: () => void;
   setCustomClass: () => string;
