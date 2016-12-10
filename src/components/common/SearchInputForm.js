@@ -1,23 +1,8 @@
 import React, { Component } from 'react';
 
-type Props = {
-  defaultInput: string,
-  handleInputChange: Function,
-  customClass: string,
-  label: string
-}
-
 class SearchInputForm extends Component {
-  props: Props;
 
-  state: {
-    currentInput: string,
-  }
-
-  static defaultProps: { defaultInput: '' };
-
-  handleOnChange: () => void;
-  setCustomClass: () => string;
+  static defaultProps: { defaultInput: '', customClass : 'search-input-container', };
 
   constructor(props: Props) {
     super(props);
@@ -44,11 +29,6 @@ class SearchInputForm extends Component {
       </div>
     );
   }
-}
-
-SearchInputForm.defaultProps = {
-  defaultInput: '',
-  customClass : 'search-input-container',
 }
 
 export default SearchInputForm;

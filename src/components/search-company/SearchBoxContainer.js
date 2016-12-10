@@ -1,15 +1,9 @@
-// @flow
 import React, { Component } from 'react';
 import SearchInputForm from '../common/SearchInputForm';
 import Button from '../common/Button';
 import './SearchCompany.scss';
 
 class SearchBoxContainer extends Component {
-  state: { numOfValidInputFields: number }
-
-  handleOnClick: () => void;
-  handleInputChange: () => void;
-
   constructor() {
     super()
     this.state = {
