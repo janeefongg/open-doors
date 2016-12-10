@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import InputForm from '../common/InputForm';
 import Button from '../common/Button';
-// import './App.scss';
+import './register.scss';
+import logo from '../../assets/logo.svg';
 
 class Register extends Component {
   render() {
@@ -10,7 +11,7 @@ class Register extends Component {
         <div className="row">
           <div className="col-xs-12">
             <div className="header">
-              Logo goes here
+              <img src={logo} alt="logo" />
             </div>
           </div>
         </div>
