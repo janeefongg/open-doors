@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Button from '../common/Button';
 import SearchBoxContainer from './SearchBoxContainer';
+import logo from '../../assets/logo.svg';
 
 class SearchCompany extends Component {
   constructor(props) {
@@ -17,12 +18,12 @@ class SearchCompany extends Component {
       <div className="search-page">
         <div className="row">
           <div className="col-xs-12">
-            Logo goes here
+            <img src={logo} alt="logo" />
           </div>
         </div>
         <div className="row">
           <div className="col-xs-12">
-            Search title goes here
+            <h1>Search job sites, newspapers, associations, and company career pages.</h1>
           </div>
         </div>
         <div className="row">

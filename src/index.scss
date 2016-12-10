@@ -1,7 +1,11 @@
 @import './styles/typography';
-
+@import './styles/mixins/mq';
 // globals
 body {
   margin: 0;
-  padding: 0;
+  padding: 25px;
+
+  @include mq(tall) {
+    padding: 50px;
+  }
 }
