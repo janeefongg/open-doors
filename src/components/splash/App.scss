@@ -22,14 +22,3 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
-
-.login-form {
-  text-align: start;
-  border-radius: 3px;
-  border: 1px solid #d8d8d8;
-  padding: 1rem;
-
-  .login-btn {
-    margin-top: 1rem;
-  }
-}
