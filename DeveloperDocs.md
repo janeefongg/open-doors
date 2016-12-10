@@ -46,3 +46,18 @@ Creating a new company:
     name   : STRING
     address: STRING
 ```
+
+Creating a new review:
+
+```
+/api/reviews {POST}
+  Expected Body
+    companyId: INTEGER
+  	message: STRING
+    interactions: INTEGER (0 - 5)
+    harassment: INTEGER (0 - 5)
+    advancement: INTEGER (0 - 5)
+    familySupport: INTEGER (0 - 5)
+    workLifeBalance: INTEGER (0 - 5)
+    equalPay: INTEGER (0 - 5)
+```
