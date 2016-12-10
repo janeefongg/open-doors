@@ -5,6 +5,9 @@ import { Router, Route, browserHistory } from 'react-router';
 import configureStore from '../configureStore';
 import Splash from './splash';
 import Register from './register';
+import store from '../configureStore';
+import Splash from './splash';
+import Login from './login';
 import SearchCompany from './search-company';
 import CompanyProfile from './company-profile';
 import SignIn from './auth/signin';
@@ -17,6 +20,8 @@ const Root = () => (
       <Route path="/" component={Splash}>
       </Route>
       <Route path="/register" component={Register}>
+      </Route>
+      <Route path="/login" component={Login}>
       </Route>
       <Route path="/search" component={SearchCompany}>
       </Route>
