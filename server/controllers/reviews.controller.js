@@ -28,6 +28,7 @@ export const postReview = async (req, res) => {
       familySupport,
       workLifeBalance,
       equalPay,
+      companyId,
     } = req.body;
     const review = await Review.create({
       message,
@@ -37,6 +38,7 @@ export const postReview = async (req, res) => {
       familySupport,
       workLifeBalance,
       equalPay,
+      companyId,
     });
     res.json({
       success: true,
