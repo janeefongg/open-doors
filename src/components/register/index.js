@@ -19,6 +19,7 @@ class Register extends Component {
           <div className="row">
             <div className="col-xs-12">
               <h2 className="register-title">Quick Registration</h2>
+              <h4 className="register-subtitle">It only takes a few seconds</h4>
             </div>
           </div>
           <div className="row">
@@ -47,7 +48,7 @@ class Register extends Component {
             </div>
           </div>
           <div className="row">
-            <div className="col-xs-12">
+            <div className="col-xs-12 button-container">
               <Button customClass='lg-btn' text='Sign Up' handleOnClick={this.handleOnClick} />
             </div>
           </div>

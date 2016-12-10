@@ -1,15 +1,15 @@
 // google fonts
-@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Merriweather:400,700');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700');
 
 @import './vars';
 
 html {
   font-size: $_base-font-size;
-  font-family: 'Merriweather', Georgia, serif;
+  font-family: 'Roboto', Georgia, serif;
+  font-weight: 300;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Lato';
   font-weight: 400;
 }
 

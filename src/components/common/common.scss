@@ -7,7 +7,7 @@
   cursor: pointer;
   color: #FAFAFB;
   padding: 1rem 0;
-  border-radius: 3px;
+  border-radius: 30px;
   background-color: palette("accent-pink", 5);
   text-align: center;
   &:hover {
@@ -96,13 +96,19 @@
   -moz-appearance: none;
   -webkit-appearance: none;
   -webkit-tap-highlight-color: transparent;
-  border-radius: 0;
+  border-radius: 30px;
   display: -moz-flex;
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
   font-size: 100%;
   line-height: 25px;
+  border: 1px solid palette("gray", -10);
+  padding: 15px 22px;
+}
+
+.fl-input-container input:focus {
+  border: 1px solid palette("accent-pink");
 }
 
 .fl-input-form-label {
@@ -115,10 +121,13 @@
   -webkit-transform: scale(1) translate3d(0, 22px, 0);
   -webkit-transition: 200ms ease all;
   color: #999;
-  font-weight: normal;
+  font-weight: 300;
+  font-size: 20px;
   opacity: 0.75;
   order: 1;
-  padding-left: 2px;
+  position: relative;
+  top: 18px;
+  left: 22px;
   pointer-events: none;
   text-transform: capitalize;
   transform-origin: left top;
@@ -129,11 +138,11 @@
 .fl-input-container input:focus + label,
 .fl-input-container input.fl-valid + label,
 .fl-invalid + label {
-  -moz-transform: scale(0.8) translate3d(0, 5px, 0);
-  -webkit-transform: scale(0.8) translate3d(0, 5px, 0);
-  color: palette("accent-blue");
+  -moz-transform: scale(0.6) translate3d(0, 15px, 0);
+  -webkit-transform: scale(0.6) translate3d(0, 15px, 0);
+  color: palette("accent-pink");
   opacity: 1;
-  transform: scale(0.8) translate3d(0, 5px, 0);
+  transform: scale(0.6) translate3d(0, 15px, 0);
 }
 
 .fl-input-form:active,
@@ -148,37 +157,36 @@
   -webkit-flex: 1 1 auto;
   -webkit-order: 2;
   border: 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
   color: #000;
   flex: 1 1 auto;
   order: 2;
 }
 
-.fl-input-bar {
-  -ms-flex-order: 3;
-  -webkit-order: 3;
-  display: block;
-  order: 3;
-  top: 0;
-}
+// .fl-input-bar {
+//   -ms-flex-order: 3;
+//   -webkit-order: 3;
+//   display: block;
+//   order: 3;
+//   top: 0;
+// }
 
-.fl-input-bar::after,
-.fl-input-bar::before {
-  background: palette("accent-blue");
-  bottom: 0;
-  content: "";
-  height: 2px;
-  position: absolute;
-  width: 0;
-}
+// .fl-input-bar::after,
+// .fl-input-bar::before {
+//   background: palette("accent-blue");
+//   bottom: 0;
+//   content: "";
+//   height: 2px;
+//   position: absolute;
+//   width: 0;
+// }
 
-.fl-input-bar::before {
-  left: 50%;
-}
+// .fl-input-bar::before {
+//   left: 50%;
+// }
 
-.fl-input-bar::after {
-  right: 50%;
-}
+// .fl-input-bar::after {
+//   right: 50%;
+// }
 
 .fl-input-form:focus ~ .fl-input-bar::after,
 .fl-input-form:focus ~ .fl-input-bar::before,
