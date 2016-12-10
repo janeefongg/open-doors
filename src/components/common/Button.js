@@ -1,11 +1,5 @@
-// @flow
 import React from 'react';
 import './common.scss';
-
-type Props = {
-  text: string,
-  handleOnClick: Function,
-}
 
 const Button = (props: Props) => {
   const setButtonClass = props.customClass || "btn";
