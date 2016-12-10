@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
 
 export default class AnimateInputField extends Component {
@@ -13,7 +13,17 @@ export default class AnimateInputField extends Component {
   }
 
   handleOnBlur(e) {
-    this.setState({ hasValue: Boolean(e.target.value) });
+    const hasValue = Boolean(e.target.value);
+    this.validateField(hasValue);
+    this.setState({ hasValue: hasValue });
+  }
+
+  validateField(hasValue) {
+    if(hasValue && !this.state.hasValue) {
+      this.props.incrementNumOfValidAnswers();
+    } else if (!hasValue && this.state.hasValue) {
+      this.props.decrementNumOfValidAnswers();
+    }
   }
 
   handleOnChange(e) {
@@ -37,6 +47,10 @@ export default class AnimateInputField extends Component {
       </div>
     );
   }
+}
+AnimateInputField.PropTypes = {
+  incrementNumOfValidAnswers: PropTypes.func.isRequired,
+  decrementNumOfValidAnswers: PropTypes.func.isRequired,
 }
 
 AnimateInputField.defaultProps = {

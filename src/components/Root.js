@@ -10,7 +10,20 @@ import SearchCompany from './search-company';
 import CompanyProfile from './company-profile';
 import SignIn from './auth/signin';
 
-const store = configureStore();
+const initialState = {
+  register: {
+    numberOfFields      : 5,
+    numberOfValidAnswers: 0,
+    isValid             : false,
+  },
+  login: {
+    numberOfFields      : 2,
+    numberOfValidAnswers: 0,
+    isValid             : false,
+  },
+}
+
+const store = configureStore(initialState);
 
 const Root = () => (
   <Provider store={store}>

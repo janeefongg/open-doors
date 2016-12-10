@@ -1,10 +1,25 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import InputForm from '../common/InputForm';
 import Button from '../common/Button';
 import './register.scss';
 import logo from '../../assets/logo.svg';
 
 class Register extends Component {
+  constructor(props) {
+    super(props);
+    this.handleOnClick = this.handleOnClick.bind(this);
+  }
+
+  handleOnClick() {
+    const { isRegisterValid } = this.props;
+    if(isRegisterValid) {
+      // dispatch redirect to search page
+    } else {
+      // render error message
+    }
+  }
+
   render() {
     return (
       <div className="register-container">
@@ -29,7 +44,7 @@ class Register extends Component {
           </div>
           <div className="row">
             <div className="col-xs-12">
-              <InputForm placeholder='Password' />
+              <InputForm type='password' placeholder='Password' />
             </div>
           </div>
           <div className="row">
@@ -58,4 +73,7 @@ class Register extends Component {
   }
 }
 
-export default Register;
+const mapStateToProps = (state) => ({
+  isRegisterValid: state.register.isValid,
+});
+export default connect(mapStateToProps)(Register);
