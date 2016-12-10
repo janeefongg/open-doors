@@ -4,7 +4,8 @@ import './common.scss';
 
 type Props = {
   text: string,
-  handleOnClick: Function,
+  handleOnClick: () => void,
+  customClass: string,
 }
 
 const Button = (props: Props) => {

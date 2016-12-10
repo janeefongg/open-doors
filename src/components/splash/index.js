@@ -1,8 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 import './App.scss';
-import InputForm from '../common/InputForm';
-import Button from '../common/Button';
+import LoginContainer from './LoginContainer';
 
 class Splash extends Component {
   render() {
@@ -13,25 +12,7 @@ class Splash extends Component {
         </p>
         <div className="row">
           <div className="col-xs-12 col-sm-offset-4 col-sm-4">
-            <div className="login-form">
-              <div className="row">
-                <div className="col-xs-12">
-                  <div className="row">
-                    <div className="col-xs-12">
-                      <InputForm placeholder='Username' />
-                    </div>
-                    <div className="col-xs-12">
-                      <InputForm placeholder='Password' />
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-xs-12 center-xs">
-                      <Button customClass='lg-btn login-btn' text='Sign in'/>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <LoginContainer />
           </div>
         </div>
       </div>
