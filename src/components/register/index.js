@@ -5,6 +5,15 @@ import './register.scss';
 import logo from '../../assets/logo.svg';
 
 class Register extends Component {
+  constructor(props) {
+    super(props);
+    this.handleOnClick = this.handleOnClick.bind(this);
+  }
+
+  handleOnClick() {
+    console.log('registering!');
+  }
+
   render() {
     return (
       <div className="register-container">
