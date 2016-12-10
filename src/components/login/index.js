@@ -44,7 +44,7 @@ class Login extends Component {
           </div>
           <div className="row">
             <div className="col-xs-12">
-              <InputForm saveData={this.saveUsername} vplaceholder='Enter a username' />
+              <InputForm saveData={this.saveUsername} placeholder='Enter a username' />
             </div>
           </div>
           <div className="row">

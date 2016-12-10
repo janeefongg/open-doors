@@ -12,16 +12,18 @@ import SignIn from './auth/signin';
 
 const initialState = {
   register: {
-    userName: '',
-    password: '',
-    email: '',
-    firstName: '',
-    lastName: '',
+    username            : '',
+    password            : '',
+    email               : '',
+    firstName           : '',
+    lastName            : '',
     numberOfFields      : 5,
     numberOfValidAnswers: 0,
     isValid             : false,
   },
   login: {
+    username            : '',
+    password            : '',
     numberOfFields      : 2,
     numberOfValidAnswers: 0,
     isValid             : false,
