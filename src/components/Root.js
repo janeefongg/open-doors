@@ -12,6 +12,11 @@ import SignIn from './auth/signin';
 
 const initialState = {
   register: {
+    userName: '',
+    password: '',
+    email: '',
+    firstName: '',
+    lastName: '',
     numberOfFields      : 5,
     numberOfValidAnswers: 0,
     isValid             : false,
