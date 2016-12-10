@@ -11,8 +11,16 @@ import CompanyProfile from './company-profile';
 import SignIn from './auth/signin';
 
 const initialState = {
-  register: {},
-  login   : {},
+  register: {
+    numberOfFields      : 5,
+    numberOfValidAnswers: 0,
+    isValid             : false,
+  },
+  login: {
+    numberOfFields      : 2,
+    numberOfValidAnswers: 0,
+    isValid             : false,
+  },
 }
 
 const store = configureStore(initialState);
