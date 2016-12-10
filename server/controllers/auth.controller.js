@@ -1,21 +1,13 @@
-import jwt from 'jwt-simple';
 import User from '../models/user.model';
-import secret from '../config';
 import Auth from '../services/auth';
 
-function tokenForUser(user) {
-  const timestamp = new Date().getTime();
-  const userId = user.id.toString();
-  return jwt.encode({ sub: userId, iat: timestamp }, secret.secret);
-}
-
 exports.signin = async (req, res) => {
-  const { email, password } = req.body;
+  const { username, password } = req.body;
 
   try {
     const user = (await User.findAll({
       where: {
-        email,
+        username,
       },
     }))[0];
 
@@ -34,7 +26,7 @@ exports.signup = async (req, res, next) => {
   const username = req.body.username;
 
   if (!email || !password || !username) {
-    return res.status(422).send({ error: 'You must provide email and password' });
+    return res.status(422).send({ error: 'You must provide email, username, and password' });
   }
 
   try {
@@ -48,17 +40,17 @@ exports.signup = async (req, res, next) => {
       return res.status(422).send({ error: 'Email is in use' });
     }
 
-    const user = {
+    const userDetails = {
       username,
       email,
       password,
     };
 
-    const createUser = await User.create(user);
+    const createUser = await User.create(userDetails);
 
     if (createUser) {
-      const userObj = JSON.stringify(createUser);
-      res.json({ token: tokenForUser(JSON.parse(userObj)) });
+      const user = JSON.stringify(createUser);
+      res.json({ token: Auth.generateToken({ id: user.id, username: user.username }) });
     }
   } catch (err) {
     next(err);

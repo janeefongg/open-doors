@@ -1,17 +1,19 @@
 import { takeEvery } from 'redux-saga'
 import { call, put } from 'redux-saga/effects'
 
-import {postSignIn} from '../actions/index'
+import {postLogin} from '../actions/index'
 
-function* postSignInUser(action) {
+function* loginUser(action) {
 
   const signInObj = {
-    email   : action.payload.email,
+    username: action.payload.username,
     password: action.payload.password,
   };
 
   try {
-    yield call(postSignIn, signInObj);
+    console.log('inside here')
+    const isLoginSuccessful = yield call(postLogin, signInObj);
+    console.log('this is isLoginSuccessful', isLoginSuccessful)
     yield put ({ type: 'SIGNIN_SUCCESS', isSignedIn: true })
   } catch (e) {
     yield put ({ type: 'SIGNIN_FAILED', isSignedIn: false });
@@ -19,7 +21,7 @@ function* postSignInUser(action) {
 }
 
 function* mySaga() {
-  yield takeEvery('POST_SIGNIN', postSignInUser);
+  yield takeEvery('POST_LOGIN', loginUser);
 }
 
 export default mySaga;

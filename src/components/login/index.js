@@ -7,6 +7,11 @@ import logo from '../../assets/logo.svg';
 class Login extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      username: '',
+      password: '',
+    }
     this.handleOnClick = this.handleOnClick.bind(this);
   }
 
@@ -64,4 +69,12 @@ class Login extends Component {
   }
 }
 
-export default Login;
+function mapStateToProps(state) {
+  return {
+    username: state.username,
+    password: state.password,
+  }
+
+}
+
+export default connect(mapStateToProps)(Login)

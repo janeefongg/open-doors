@@ -15,23 +15,19 @@ auth.generateToken = (user) => {
 };
 
 auth.ifAuthorized = (req, res, next) => {
-  function unauthorized(response) {
-    response.sendStatus(401);
-  }
-
   const token = req.body.token;
 
   if (token) {
     jwt.verify(token, authCredentials.secret, (err) => {
       if (err) {
         console.error('err');
-        unauthorized(res);
+        res.sendStatus(401);
       } else {
         next();
       }
     });
   } else {
-    unauthorized(res);
+    res.sendStatus(401);
   }
 };
 
