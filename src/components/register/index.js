@@ -20,6 +20,31 @@ class Register extends Component {
     }
   }
 
+  saveUsername() {
+    // call dispatch to save username to store
+    console.log('saving!');
+  }
+
+  savePassword() {
+    // call dispatch to save username to store
+    console.log('saving!');
+  }
+
+  saveFirstName() {
+    // call dispatch to save username to store
+    console.log('saving!');
+  }
+
+  saveLastName() {
+    // call dispatch to save username to store
+    console.log('saving!');
+  }
+
+  saveEmail() {
+    // call dispatch to save username to store
+    console.log('saving!');
+  }
+
   render() {
     return (
       <div className="register-container">
@@ -39,27 +64,27 @@ class Register extends Component {
           </div>
           <div className="row">
             <div className="col-xs-12">
-              <InputForm placeholder='Choose a Cool Username' />
+              <InputForm saveData={this.saveUsername} placeholder='Choose a Cool Username' />
             </div>
           </div>
           <div className="row">
             <div className="col-xs-12">
-              <InputForm type='password' placeholder='Password' />
+              <InputForm saveData={this.savePassword} type='password' placeholder='Password' />
             </div>
           </div>
           <div className="row">
             <div className="col-xs-12">
-              <InputForm placeholder='First Name' />
+              <InputForm saveData={this.saveFirstName} placeholder='First Name' />
             </div>
           </div>
           <div className="row">
             <div className="col-xs-12">
-              <InputForm placeholder='Last Name' />
+              <InputForm saveData={this.saveLastName} placeholder='Last Name' />
             </div>
           </div>
           <div className="row">
             <div className="col-xs-12">
-              <InputForm placeholder='E-mail' />
+              <InputForm saveData={this.saveEmail} placeholder='E-mail' />
             </div>
           </div>
           <div className="row">

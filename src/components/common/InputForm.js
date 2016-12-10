@@ -17,7 +17,7 @@ class AnimateInputField extends Component {
     const hasValue = Boolean(e.target.value);
     this.validateField(hasValue);
     this.setState({ hasValue: hasValue });
-    this.props.saveData()
+    this.props.saveData(e.target.value);
   }
 
   validateField(hasValue) {
