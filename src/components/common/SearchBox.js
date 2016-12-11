@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import InputForm from '../common/InputForm';
-import './SearchCompany.scss';
+import './SearchBox.scss';
 import SearchIcon from '../../assets/search_icon.svg';
 import LocationIcon from '../../assets/location_icon.svg';
 
-class SearchBoxContainer extends Component {
+class SearchBox extends Component {
   constructor() {
     super()
     this.state = {
@@ -35,7 +35,7 @@ class SearchBoxContainer extends Component {
       <div className='search-box-container'>
         <div className='row center-xs'>
           <div className='col-xs-12'>
-            <InputForm placeholder="Keywords" containerClass="search-left">
+            <InputForm placeholder="Search" containerClass="search-left">
               <img src={SearchIcon} alt="search" className="search-input-logo" />
             </InputForm>
             <InputForm placeholder="Where?" containerClass="search-right">
@@ -48,4 +48,4 @@ class SearchBoxContainer extends Component {
   }
 }
 
-export default SearchBoxContainer;
+export default SearchBox;
