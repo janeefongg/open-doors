@@ -2,6 +2,7 @@ import { takeEvery } from 'redux-saga'
 import { call, put } from 'redux-saga/effects'
 
 import { postLogin } from '../actions/index'
+// import { postRegister } from '../actions/'
 
 function* loginUser(action) {
   const loginObj = {
@@ -20,14 +21,12 @@ function* loginUser(action) {
 }
 
 function* registerUser({payload}) {
-  try {
 
-  }
 }
 
 export default function* root() {
   yield [
     takeEvery('POST_LOGIN', loginUser),
-    taleEvery('REGISTER_USER', registerUser)
+    takeEvery('REGISTER_USER', registerUser),
   ];
 };
