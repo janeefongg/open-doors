@@ -20,18 +20,13 @@ sagaMiddleware.run(rootSaga);
 const Root = () => (
   <Provider store={store}>
     <Router history={browserHistory}>
-      <Route path="/" component={Splash}>
-      </Route>
-      <Route path="/register" component={Register}>
-      </Route>
-      <Route path="/login" component={Login}>
-      </Route>
-      <Route path="/search" component={SearchCompany} onEnter={requireAuth}>
-      </Route>
-      <Route path="/list" component={ListCompanies} onEnter={requireAuth}>
-      </Route>
-      <Route path="/company" component={CompanyProfile} onEnter={requireAuth}>
-      </Route>
+      <Route path="/" component={Splash} />
+      <Route path="/register" component={Register} />
+      <Route path="/login" component={Login} />
+      <Route path="/search" component={SearchCompany} onEnter={requireAuth} />
+      <Route path="/list" component={ListCompanies} onEnter={requireAuth} />
+      <Route path="/company" component={CompanyProfile} onEnter={requireAuth} />
+      <Route path="/company/:name" component={CompanyProfile} />
     </Router>
   </Provider>
 );
