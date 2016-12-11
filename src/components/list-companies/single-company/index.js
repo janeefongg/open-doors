@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 import SingleRating from './SingleRating';
 
@@ -10,11 +11,13 @@ const SingleCompany = ({ id, name, url, address, ratings }) => (
     <div className="company-title row">
       <div className="company-graphic col-xs-1 col-xs-offset-1">{name[0].toUpperCase()}</div>
       <div className="company-meta col-xs-7">
-        <h3 className="company-name">{name}</h3>
+        <h3 className="company-name">
+          <Link to={`/company/${name}/`}>{name}</Link>
+        </h3>
         <h4 className="company-details">{url} | <span className="company-location">{address}</span></h4>
       </div>
       <div className="review-link-container col-xs-2">
-        <a href="#">Add a Review</a>
+        <Link to={`/company/${id}/review`}>Add a Review</Link>
       </div>
     </div>
 
