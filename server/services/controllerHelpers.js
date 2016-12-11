@@ -9,12 +9,14 @@ import * as models from '../models';
  *
  *  Gets column names for a model and returns them in an array
  */
-export const getColumns = async (modelName) => {
+export const getColumns = async (modelName, omitThese) => {
   const result = await models[modelName].describe();
   const filtered = [];
   each(result, (_, name) => {
     if (!(/.*Id|createdAt|updatedAt|id/).test(name)) {
-      filtered.push(name);
+      if (!omitThese[name]) {
+        filtered.push(name);
+      }
     }
   });
   return filtered;

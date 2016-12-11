@@ -20,6 +20,10 @@ const Company = sequelize.define('companies', {
     type        : Sequelize.INTEGER,
     defaultValue: 0,
   },
+  salaryCount: {
+    type        : Sequelize.INTEGER,
+    defaultValue: 0,
+  },
   // average rating between 000~500, to be converted to decimal later
   interactions: {
     type        : Sequelize.INTEGER,
@@ -64,11 +68,10 @@ const Company = sequelize.define('companies', {
           ((this[ratingName] * this.reviewCount) + (rating * 100))
           / (this.reviewCount + 1)
         );
-        console.log('mean = ', mean);
         this.setDataValue(ratingName, mean);
       });
 
-      // update reviewCount
+      // update reviewCount & salaryCount
       this.setDataValue('reviewCount', this.reviewCount + 1);
 
       // update overallRating
