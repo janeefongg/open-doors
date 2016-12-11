@@ -5,7 +5,8 @@ import InputForm from '../common/InputForm';
 import Button from '../common/Button';
 import Slider from './Slider';
 // import EmptyStars from '../../assets/star-empty';
-import EmptyStars from '../../assets/star-empty.svg';
+// import EmptyStars from '../../assets/star-empty.svg';
+import RatingStars from '../common/RatingStars';
 
 class Review extends Component {
   constructor(props) {
@@ -67,12 +68,7 @@ class Review extends Component {
               <div className="row">
                 <div className="col-xs-12">
                   <div className="rate-company-container">
-                    <span>Leave a 1-5 Review</span>
-                      <img className='review-stars' src={EmptyStars} />
-                      <img className='review-stars' src={EmptyStars} />
-                      <img className='review-stars' src={EmptyStars} />
-                      <img className='review-stars' src={EmptyStars} />
-                      <img className='review-stars' src={EmptyStars} />
+                    <RatingStars />
                   </div>
                 </div>
               </div>
