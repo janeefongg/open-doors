@@ -10,7 +10,6 @@ import { saveUsername } from '../../actions/login';
 class Login extends Component {
   constructor(props) {
     super(props);
-
     this.handleOnClick = this.handleOnClick.bind(this);
     this.saveUsername = this.saveUsername.bind(this);
     this.savePassword = this.savePassword.bind(this);
@@ -65,7 +64,7 @@ class Login extends Component {
           </div>
           <div className="row">
             <div className="col-xs-12 button-container">
-              <Button customClass='lg-btn' text='Sign In' handleOnClick={this.handleOnClick} />
+              <Button customClass='lg-btn' text='Sign In' handleOnClick={this.handleOnClick} onClick={this.handleOnClick}/>
             </div>
           </div>
         </div>
