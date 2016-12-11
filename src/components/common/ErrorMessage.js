@@ -3,7 +3,9 @@ import React from 'react';
 const ErrorMessage = (props) => {
   return (
     <div className='error'>
-      { props.errorMessage }
+      { props.message }
     </div>
   );
 }
+
+export default ErrorMessage;

@@ -19,6 +19,15 @@ function* loginUser(action) {
   }
 }
 
+function* registerUser({payload}) {
+  try {
+
+  }
+}
+
 export default function* root() {
-  yield takeEvery('POST_LOGIN', loginUser);
+  yield [
+    takeEvery('POST_LOGIN', loginUser),
+    taleEvery('REGISTER_USER', registerUser)
+  ];
 };

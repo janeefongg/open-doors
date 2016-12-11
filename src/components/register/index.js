@@ -1,48 +1,80 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { saveUsername, savePassword, saveFirstName, saveLastName, saveEmail } from '../../actions/register';
 import InputForm from '../common/InputForm';
 import Button from '../common/Button';
-import './register.scss';
 import Logo from '../common/Logo';
+import ErrorMessage from '../common/ErrorMessage';
+import { browserHistory } from 'react-router';
+import './register.scss';
 
 class Register extends Component {
   constructor(props) {
     super(props);
+    this.state = { showError: false }
     this.handleOnClick = this.handleOnClick.bind(this);
+    this.saveUsername = this.saveUsername.bind(this);
+    this.savePassword = this.savePassword.bind(this);
+    this.saveFirstName = this.saveFirstName.bind(this);
+    this.saveLastName = this.saveLastName.bind(this);
+    this.saveEmail = this.saveEmail.bind(this);
   }
 
   handleOnClick() {
     const { isRegisterValid } = this.props;
+    console.log('valid --- ', isRegisterValid);
     if(isRegisterValid) {
-      // dispatch redirect to search page
+      browserHistory.push('/search');
     } else {
       // render error message
+      this.setState({ showError: true });
     }
   }
 
-  saveUsername() {
+  saveUsername(username) {
     // call dispatch to save username to store
     console.log('saving!');
+    const { saveUsername } = this.props;
+    saveUsername(username);
   }
 
-  savePassword() {
+  savePassword(password) {
     // call dispatch to save username to store
     console.log('saving!');
+    const { savePassword } = this.props;
+    savePassword(password);
   }
 
-  saveFirstName() {
+  saveFirstName(firstName) {
     // call dispatch to save username to store
     console.log('saving!');
+    const { saveFirstName } = this.props;
+    saveFirstName(firstName);
   }
 
-  saveLastName() {
+  saveLastName(lastName) {
     // call dispatch to save username to store
     console.log('saving!');
+    const { saveLastName } = this.props;
+    saveLastName(lastName);
   }
 
-  saveEmail() {
+  saveEmail(email) {
     // call dispatch to save username to store
     console.log('saving!');
+    const { saveEmail } = this.props;
+    saveEmail(email);
+  }
+
+  renderErrorMessage() {
+    if(this.state.showError) {
+      return (
+        <ErrorMessage message='Please fill out all required fields.' />
+      );
+    } else {
+      return null;
+    }
   }
 
   render() {
@@ -89,6 +121,7 @@ class Register extends Component {
           </div>
           <div className="row">
             <div className="col-xs-12 button-container">
+              { this.renderErrorMessage() }
               <Button customClass='lg-btn' text='Sign Up' handleOnClick={this.handleOnClick} />
             </div>
           </div>
@@ -99,6 +132,11 @@ class Register extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  isRegisterValid: state.register.isValid,
+  isRegisterValid: state.register.numberOfValidAnswers === state.register.numberOfFields,
 });
-export default connect(mapStateToProps)(Register);
+
+const mapDispatchToProps = dispatch => {
+	return bindActionCreators({ saveUsername, savePassword, saveEmail, saveFirstName, saveLastName }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Register);
