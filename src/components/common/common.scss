@@ -3,6 +3,8 @@
 // buttons
 %btn {
   border: 1px solid palette("accent-pink", -10);
+  font-weight: bold;
+  font-size: 20px;
   display: inline-block;
   cursor: pointer;
   color: #FAFAFB;
@@ -103,7 +105,7 @@
   display: flex;
   font-size: 100%;
   line-height: 25px;
-  border: 1px solid palette("gray", -10);
+  border: 1px solid #666666;
   padding: 15px 22px;
 }
 
