@@ -4,6 +4,8 @@ export default function(state = {}, action) {
 			return {...state, username: action.payload }
 		case 'SAVE_PASSWORD':
 			return {...state, password: action.payload }
+		case 'LOGIN_STATUS':
+			return { ...state, isLoginSuccess: action.payload }
 		default:
 			return state;
 	}

@@ -1,8 +1,7 @@
 import { takeEvery } from 'redux-saga'
 import { call, put } from 'redux-saga/effects'
 
-import { postLogin } from '../actions/index'
-// import { postRegister } from '../actions/'
+import { postLogin } from '../services/index'
 
 function* loginUser(action) {
   const loginObj = {
@@ -11,12 +10,10 @@ function* loginUser(action) {
   };
 
   try {
-    console.log('inside here')
     const isLoginSuccessful = yield call(postLogin, loginObj);
-    console.log('this is isLoginSuccessful', isLoginSuccessful)
-    yield put ({ type: 'SIGNIN_SUCCESS', isSignedIn: true })
+    yield put({ type: 'LOGIN_STATUS', payload: true });
   } catch (e) {
-    yield put ({ type: 'SIGNIN_FAILED', isSignedIn: false });
+    yield put({ type: 'LOGIN_STATUS', payload: false });
   }
 }
 

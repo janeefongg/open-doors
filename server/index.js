@@ -6,11 +6,13 @@ import {
   companiesRouter,
   reviewsRouter,
   } from './routes/';
+import expressValidator from 'express-validator';
 
 const app = express();
 const port = 3001;
 
 app.use(bodyParser.json());
+app.use(expressValidator());
 
 // set up HTTP endpoints
 app.use('/api/auth', authRouter);

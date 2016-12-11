@@ -7,6 +7,8 @@ const initialState = {
     lastName            : '',
     numberOfFields      : 5,
     numberOfValidAnswers: 0,
+    isValid             : false,
+    isEmail             : true,
   },
   login: {
     username            : '',
@@ -14,6 +16,7 @@ const initialState = {
     numberOfFields      : 2,
     numberOfValidAnswers: 0,
     isValid             : false,
+    isLoginSuccess      : null,
   },
 }
 
