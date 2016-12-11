@@ -1,42 +1,21 @@
-// @flow
 import React from 'react';
 import { Provider } from 'react-redux';
 import { Router, Route, browserHistory } from 'react-router';
-import { sagaMiddleware } from '../configureStore';
-import rootSaga from '../sagas/sagas';
-import configureStore from '../configureStore';
+
+import rootSaga from '../sagas';
+import configureStore, { sagaMiddleware } from '../store/configureStore';
+import initialState from '../store/initialState';
+
 import Splash from './splash';
 import Register from './register';
 import Login from './login';
-
 import SearchCompany from './search-company';
 import CompanyProfile from './company-profile';
 import ListCompanies from './list-companies';
 
-const initialState = {
-  register: {
-    username            : '',
-    password            : '',
-    email               : '',
-    firstName           : '',
-    lastName            : '',
-    numberOfFields      : 5,
-    numberOfValidAnswers: 0,
-    isValid             : false,
-  },
-  login: {
-    username            : '',
-    password            : '',
-    numberOfFields      : 2,
-    numberOfValidAnswers: 0,
-    isValid             : false,
-  },
-}
-
 const store = configureStore(initialState);
 sagaMiddleware.run(rootSaga);
 
-console.log('my store --- ', store.getState());
 const Root = () => (
   <Provider store={store}>
     <Router history={browserHistory}>

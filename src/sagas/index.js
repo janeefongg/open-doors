@@ -1,10 +1,9 @@
 import { takeEvery } from 'redux-saga'
 import { call, put } from 'redux-saga/effects'
 
-import {postLogin} from '../actions/index'
+import { postLogin } from '../actions/index'
 
 function* loginUser(action) {
-
   const signInObj = {
     username: action.payload.username,
     password: action.payload.password,
@@ -20,8 +19,6 @@ function* loginUser(action) {
   }
 }
 
-function* mySaga() {
+export default function* root() {
   yield takeEvery('POST_LOGIN', loginUser);
-}
-
-export default mySaga;
+};
