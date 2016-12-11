@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Logo from '../common/Logo';
 import Back from '../common/Back';
+import './Header.scss';
 
 class Header extends Component {
   render() {

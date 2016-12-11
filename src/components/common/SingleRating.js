@@ -1,6 +1,6 @@
 import React from 'react';
 
-import StarGraphic from '../../common/StarGraphic';
+import StarGraphic from './StarGraphic';
 import SingleStat from './SingleStat';
 
 import './SingleRating.scss';
