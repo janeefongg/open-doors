@@ -33,3 +33,16 @@ export function postSignup(data) {
     })
 }
 
+export function searchCompanyAJAX(data) {
+  return axios.get(`/api/companies?search=${data}`)
+    .then((response) => {
+      console.log('this is response', response);
+      if (response.data.result.length > 0) {
+        return response.data.result;
+      } else {
+        return false;
+      }
+    });
+}
+
+

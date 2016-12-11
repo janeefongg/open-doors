@@ -1,6 +1,7 @@
 import { Company } from '../models';
 
 export const fetchCompanies = async (req, res) => {
+  console.log('this is req.query', req.query);
   // GET /api/companies/?id,name,search
   // GET /api/companies
   const { id, name, search } = req.query;
@@ -10,7 +11,7 @@ export const fetchCompanies = async (req, res) => {
     if (search) {
       // validate search query input
       const validatedSearch = search.replace(/\s\s+/g, ' ').trim().split(' ');
-      const companies = await Company.findAll({
+      const companiesByName = await Company.findAll({
         where: {
           /**
            *  For doing a WHERE query for multiple keywords, we use the $or operator.
@@ -28,9 +29,17 @@ export const fetchCompanies = async (req, res) => {
           $or: validatedSearch.map(str => ({ name: { $like: `%${str}%` } })),
         },
       });
+      const companiesByLocation = await Company.findAll({
+        where: {
+          $or: validatedSearch.map(str => ({ address: { $like: `%${str}%` } })),
+        },
+      });
+
+      const searchResults = companiesByName.length > 0 ? companiesByName : companiesByLocation;
+      console.log('this is searchResults', searchResults);
       res.json({
         success: true,
-        result : companies,
+        result : searchResults,
       });
       return;
     }
