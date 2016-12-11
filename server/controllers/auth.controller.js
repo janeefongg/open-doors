@@ -21,6 +21,9 @@ exports.signin = async (req, res) => {
 };
 
 exports.signup = async (req, res, next) => {
+  console.log('inside signup', req.body);
+  req.assert('email', 'Valid email required').isEmail();
+
   const email = req.body.email;
   const password = req.body.password;
   const username = req.body.username;

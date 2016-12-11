@@ -46,6 +46,8 @@ export default function(state = {}, action) {
 			} else {
 				return { ...state }
 			}
+		case 'REGISTRATION_FAIL':
+			return { ...state, isEmail: action.payload }
 		default:
 			return state;
 	}
