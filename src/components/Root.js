@@ -12,6 +12,7 @@ import Login from './login';
 import SearchCompany from './search-company';
 import CompanyProfile from './company-profile';
 import ListCompanies from './list-companies';
+import Review from './review';
 import { requireAuth } from '../helpers/auth';
 
 const store = configureStore(initialState);
@@ -27,6 +28,7 @@ const Root = () => (
       <Route path="/list" component={ListCompanies} onEnter={requireAuth} />
       <Route path="/company" component={CompanyProfile} onEnter={requireAuth} />
       <Route path="/company/:name" component={CompanyProfile} />
+      <Route path="/company/:id/review" component={Review} />
     </Router>
   </Provider>
 );
