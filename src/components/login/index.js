@@ -35,7 +35,6 @@ class Login extends Component {
   savePassword(payload) {
     // call dispatch to save username to store
     console.log('saving!');
-    this.props.dispatch( {type: 'SAVE_PASSWORD', payload });
   }
 
   render() {
