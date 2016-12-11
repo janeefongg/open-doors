@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { saveUsername, savePassword, saveFirstName, saveLastName, saveEmail } from '../../actions/register';
+import { saveUsername, savePassword, saveFirstName, saveLastName, saveEmail, registerUser } from '../../actions/register';
 import InputForm from '../common/InputForm';
 import Button from '../common/Button';
 import Logo from '../common/Logo';
@@ -12,7 +12,7 @@ import './register.scss';
 class Register extends Component {
   constructor(props) {
     super(props);
-    this.state = { showError: false }
+    this.state = { showError: false };
     this.handleOnClick = this.handleOnClick.bind(this);
     this.saveUsername = this.saveUsername.bind(this);
     this.savePassword = this.savePassword.bind(this);
@@ -22,10 +22,10 @@ class Register extends Component {
   }
 
   handleOnClick() {
-    const { isRegisterValid } = this.props;
+    const { isRegisterValid, registerUser, username, email, password } = this.props;
     console.log('valid --- ', isRegisterValid);
     if(isRegisterValid) {
-      browserHistory.push('/search');
+      registerUser({ username, password, email });
     } else {
       // render error message
       this.setState({ showError: true });
@@ -131,12 +131,17 @@ class Register extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  isRegisterValid: state.register.numberOfValidAnswers === state.register.numberOfFields,
+const mapStateToProps = ({ register: { numberOfValidAnswers, numberOfFields, username, password, email, firstName, lastName } }) => ({
+  isRegisterValid: numberOfValidAnswers === numberOfFields,
+  username,
+  password,
+  email,
+  firstName,
+  lastName,
 });
 
 const mapDispatchToProps = dispatch => {
-	return bindActionCreators({ saveUsername, savePassword, saveEmail, saveFirstName, saveLastName }, dispatch);
+	return bindActionCreators({ saveUsername, savePassword, saveEmail, saveFirstName, saveLastName, registerUser }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Register);

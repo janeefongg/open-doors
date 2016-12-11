@@ -19,13 +19,14 @@ export function postLogin(data) {
 }
 
 export function postSignup(data) {
-  axios.post('/api/auth/signup', data)
+  return axios.post('/api/auth/signup', data)
     .then((response) => {
       if (response.data.status === 200) {
         localStorage.setItem('token', response.data.token);
+        browserHistory.push('/search');
+        return true;
       } else {
-        console.log('inside here');
-        return { type: 'REGISTRATION_FAIL', payload: false };
+        return false;
       }
     })
 }
