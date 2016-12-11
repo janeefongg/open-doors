@@ -17,6 +17,10 @@ class Login extends Component {
       // if so then redirect
       // else send an error to page
     console.log('submitting login!');
+    const { username, password } = this.props;
+    if(this.props.username.length > 0 && this.props.password.length > 0) {
+      this.props.dispatch({ type: POST_LOGIN, payload: { username: username, password: password }});
+    }
   }
 
   saveUsername(payload) {
@@ -68,12 +72,9 @@ class Login extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    username: state.username,
-    password: state.password,
-  }
+const mapStateToProps = state => ({
+  username: state.login.username,
+  password: state.login.password,
+});
 
-}
-
-export default connect(mapStateToProps)(Login)
+export default connect(mapStateToProps)(Login);
