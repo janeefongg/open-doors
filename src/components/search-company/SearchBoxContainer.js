@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import SearchInputForm from '../common/SearchInputForm';
+import InputForm from '../common/InputForm';
 import './SearchCompany.scss';
+import SearchIcon from '../../assets/search_icon.svg';
+import LocationIcon from '../../assets/location_icon.svg';
 
 class SearchBoxContainer extends Component {
   constructor() {
@@ -33,16 +35,12 @@ class SearchBoxContainer extends Component {
       <div className='search-box-container'>
         <div className='row center-xs'>
           <div className='col-xs-12'>
-            <SearchInputForm
-              label='Company'
-              customClass='search-company'
-              handleInputChange={this.handleInputChange}
-            />
-            <SearchInputForm
-              label='Where'
-              customClass='search-location'
-              handleInputChange={this.handleInputChange}
-            />
+            <InputForm placeholder="Keywords" containerClass="search-left">
+              <img src={SearchIcon} alt="search" className="search-input-logo" />
+            </InputForm>
+            <InputForm placeholder="Where?" containerClass="search-right">
+              <img src={LocationIcon} alt="search" className="search-input-logo" />
+            </InputForm>
           </div>
         </div>
       </div>
