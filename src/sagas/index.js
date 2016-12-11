@@ -25,7 +25,7 @@ function* registerUser({payload}) {
     password: payload.password,
     email   : payload.email,
   }
-  console.log('register payload --- ', registerPayload);
+
   try {
     yield call(postSignup, registerPayload);
     yield put ({ type: 'REGISTER_SUCCESS', isRegisterSuccess: true });
