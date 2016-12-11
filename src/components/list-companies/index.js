@@ -37,8 +37,18 @@ class ListCompanies extends Component {
               url="www.informz.com"
               address="Saratoga Springs, NY"
               ratings={dummyRatings} />
-            <SingleCompany />
-            <SingleCompany />
+            <SingleCompany
+              id="1"
+              name="Informz"
+              url="www.informz.com"
+              address="Saratoga Springs, NY"
+              ratings={dummyRatings} />
+            <SingleCompany
+              id="1"
+              name="Informz"
+              url="www.informz.com"
+              address="Saratoga Springs, NY"
+              ratings={dummyRatings} />
           </div>
         </div>
       </div>

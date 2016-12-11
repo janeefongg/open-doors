@@ -1,6 +1,7 @@
 import React from 'react';
 import FullStar from '../../assets/star-full.svg';
 import HalfStar from '../../assets/star-half.svg';
+import './StarGraphic.scss';
 
 const StarGraphic = ({ stars }) => {
   const starCount = Number(stars);
@@ -19,7 +20,7 @@ const StarGraphic = ({ stars }) => {
         } else if (starState === "half") {
           starState = HalfStar;
         }
-        return <img src={starState} key={idx} />;
+        return <img className="star-graphic" src={starState} key={idx} />;
       })}
     </div>
   );
