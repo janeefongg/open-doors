@@ -19,7 +19,7 @@ class Login extends Component {
     console.log('submitting login!');
     const { username, password } = this.props;
     if(this.props.username.length > 0 && this.props.password.length > 0) {
-      this.props.dispatch({ type: POST_LOGIN, payload: { username: username, password: password }});
+      this.props.dispatch({ type: 'POST_LOGIN', payload: { username: username, password: password }});
     }
   }
 
