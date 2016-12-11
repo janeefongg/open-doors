@@ -3,10 +3,12 @@ import InputForm from '../common/InputForm';
 import Button from '../common/Button';
 import './login.scss';
 import logo from '../../assets/logo.svg';
+import { connect } from 'react-redux';
 
 class Login extends Component {
   constructor(props) {
     super(props);
+
     this.handleOnClick = this.handleOnClick.bind(this);
   }
 
@@ -17,14 +19,16 @@ class Login extends Component {
     console.log('submitting login!');
   }
 
-  saveUsername() {
+  saveUsername(payload) {
     // call dispatch to save username to store
     console.log('saving!');
+    this.props.dispatch({ type: 'SAVE_USERNAME', payload });
   }
 
-  savePassword() {
+  savePassword(payload) {
     // call dispatch to save username to store
     console.log('saving!');
+    this.props.dispatch( {type: 'SAVE_PASSWORD', payload });
   }
 
   render() {
@@ -64,4 +68,12 @@ class Login extends Component {
   }
 }
 
-export default Login;
+function mapStateToProps(state) {
+  return {
+    username: state.username,
+    password: state.password,
+  }
+
+}
+
+export default connect(mapStateToProps)(Login)
