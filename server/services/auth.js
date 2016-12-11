@@ -3,10 +3,6 @@ import authCredentials from '../config';
 
 const auth = {};
 
-auth.Decode = (token) => {
-  return jwt.decode(token);
-};
-
 auth.generateToken = (user) => {
   console.log('user inside generateToken', authCredentials.secret);
   return jwt.sign({ id: user.id, username: user.username },
