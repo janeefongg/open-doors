@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './review.scss';
 import Header from '../common/Header';
 import InputForm from '../common/InputForm';
+import Button from '../common/Button';
 import Slider from './Slider';
 
 class Review extends Component {
@@ -11,16 +12,32 @@ class Review extends Component {
       message: '',
     }
     this.handleOnChange = this.handleOnChange.bind(this);
+    this.handleOnClick = this.handleOnClick.bind(this);
   }
 
   handleOnChange(message) {
     this.setState({ message });
   }
 
-  // renderSliders() {
-  //   const sliders = ['Interactions', 'Harassment', 'Advancement', 'Family Support', 'Work Life Balance', 'Equal Pay'];
-  //   return sliders.
-  // }
+  handleOnClick() {
+    console.log('Post review!');
+  }
+
+  renderSliders() {
+    const sliders = ['Interactions', 'Harassment', 'Advancement', 'Family Support', 'Work Life Balance', 'Equal Pay'];
+    return sliders.map((item, i) => {
+      return (
+        <div className="row" key={i}>
+          <div className="col-xs-12">
+            <div className="slider-container">
+              <span className="slider-label">{item}</span>
+              <Slider />
+            </div>
+          </div>
+        </div>
+      );
+    });
+  }
 
   render() {
     return (
@@ -33,8 +50,8 @@ class Review extends Component {
         <div className="row">
           <div className="col-xs-offset-3 col-xs-6">
             <div className="row">
-              <div className="col-xs-12">
-                <h3>{`Write a Review for "{this.props.company}"`}</h3>
+              <div className="col-xs-12 center-xs">
+                <span className="review-title">{`Write a Review for "Digital Insight"`}</span>
               </div>
             </div>
             <div className="row">
@@ -54,6 +71,11 @@ class Review extends Component {
                 <div className="sliders-container">
 
                 </div>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-xs-12 button-container">
+                <Button customClass='lg-btn' text='Post Your Review' handleOnClick={this.handleOnClick} />
               </div>
             </div>
           </div>
