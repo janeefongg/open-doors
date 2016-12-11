@@ -139,7 +139,8 @@ class CompanyProfile extends Component {
 
           <div className="review-content col-xs-10 col-xs-offset-1">
             <div className="row">
-              <div className="col-xs-12">
+
+              <div className="col-xs-12 single-review-container">
                 <p>
                   <span className="bold">Lots of Interesting Projects</span>
                   I worked at SolutionSet Full Time
@@ -153,6 +154,37 @@ class CompanyProfile extends Component {
                   You are creating stuff for another company. Once the contract is done, the thing you created is taken away by the client and sometimes destroyed.
                 </p>
               </div>
+
+              <div className="col-xs-12 single-review-container">
+                <p>
+                  <span className="bold">Lots of Interesting Projects</span>
+                  I worked at SolutionSet Full Time
+                </p>
+                <p>
+                  <span className="bold">Pros</span>
+                  Different clients means different technical problems to solve. Lots of learning of new technologies and applying on the job. My reporting chain really pushed for a quality 40 hours a week and that’s it. So good work life balance there.
+                </p>
+                <p>
+                  <span className="bold">Cons</span>
+                  You are creating stuff for another company. Once the contract is done, the thing you created is taken away by the client and sometimes destroyed.
+                </p>
+              </div>
+
+              <div className="col-xs-12 single-review-container">
+                <p>
+                  <span className="bold">Lots of Interesting Projects</span>
+                  I worked at SolutionSet Full Time
+                </p>
+                <p>
+                  <span className="bold">Pros</span>
+                  Different clients means different technical problems to solve. Lots of learning of new technologies and applying on the job. My reporting chain really pushed for a quality 40 hours a week and that’s it. So good work life balance there.
+                </p>
+                <p>
+                  <span className="bold">Cons</span>
+                  You are creating stuff for another company. Once the contract is done, the thing you created is taken away by the client and sometimes destroyed.
+                </p>
+              </div>
+
             </div>
           </div>
         </div>
