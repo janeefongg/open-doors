@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import InputForm from '../common/InputForm';
 import Button from '../common/Button';
 import './login.scss';
-import logo from '../../assets/logo.svg';
+import Logo from '../common/Logo';
 import { connect } from 'react-redux';
 import { saveUsername } from '../../actions/login';
 
@@ -46,7 +46,7 @@ class Login extends Component {
         <div className="row">
           <div className="col-xs-12">
             <div className="header">
-              <img src={logo} alt="logo" />
+              <Logo />
             </div>
           </div>
         </div>

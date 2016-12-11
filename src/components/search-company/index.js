@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Button from '../common/Button';
-import SearchBoxContainer from './SearchBoxContainer';
-import logo from '../../assets/logo.svg';
+import SearchBox from '../common/SearchBox';
+import Logo from '../common/Logo';
 import './SearchCompany.scss';
 
 class SearchCompany extends Component {
@@ -19,7 +19,7 @@ class SearchCompany extends Component {
       <div className="search-page">
         <div className="row">
           <div className="col-xs-12">
-            <img src={logo} alt="logo" />
+            <Logo />
           </div>
         </div>
         <div className="row">
@@ -32,7 +32,7 @@ class SearchCompany extends Component {
             <div className="search-container">
               <div className="row">
                 <div className="col-xs-12">
-                  <SearchBoxContainer />
+                  <SearchBox />
                 </div>
               </div>
               <div className="row">

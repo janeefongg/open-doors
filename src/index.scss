@@ -1,12 +1,8 @@
 @import './styles/typography';
-@import './styles/mixins/mq';
+@import './styles/colors';
 
 // globals
 body {
   margin: 0;
-  padding: 25px;
-
-  @include mq(tall) {
-    padding: 50px;
-  }
+  color: palette("gray", -60);
 }

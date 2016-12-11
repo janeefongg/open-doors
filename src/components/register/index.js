@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import InputForm from '../common/InputForm';
 import Button from '../common/Button';
 import './register.scss';
-import logo from '../../assets/logo.svg';
+import Logo from '../common/Logo';
 
 class Register extends Component {
   constructor(props) {
@@ -51,7 +51,7 @@ class Register extends Component {
         <div className="row">
           <div className="col-xs-12">
             <div className="header">
-              <img src={logo} alt="logo" />
+              <Logo />
             </div>
           </div>
         </div>
