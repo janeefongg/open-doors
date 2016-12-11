@@ -1,5 +1,6 @@
 import { takeEvery } from 'redux-saga'
 import { call, put } from 'redux-saga/effects'
+import { browserHistory } from 'react-router';
 
 import { postLogin } from '../services/index'
 import { postSignup } from '../services';
@@ -28,6 +29,7 @@ function* registerUser({payload}) {
   try {
     yield call(postSignup, registerPayload);
     yield put ({ type: 'REGISTER_SUCCESS', isRegisterSuccess: true });
+    browserHistory.push('/search');
   } catch (e) {
     console.error(e);
     yield put ({ type: 'REGISTER_FAILED', isRegisterSuccess: false });
