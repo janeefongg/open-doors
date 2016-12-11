@@ -26,9 +26,9 @@ const Root = () => (
       </Route>
       <Route path="/login" component={Login}>
       </Route>
-      <Route path="/search" component={SearchCompany}>
+      <Route path="/search" component={SearchCompany} onEnter={requireAuth}>
       </Route>
-      <Route path="/list" component={ListCompanies}>
+      <Route path="/list" component={ListCompanies} onEnter={requireAuth}>
       </Route>
       <Route path="/company" component={CompanyProfile} onEnter={requireAuth}>
       </Route>
