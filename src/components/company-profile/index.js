@@ -3,6 +3,7 @@ import ProgressArc from './progress-arc';
 import StatBar from './stat-bar';
 import SingleTitle from '../common/SingleTitle';
 import SingleRating from '../common/SingleRating';
+import Header from '../common/Header';
 import './company.scss';
 
 class CompanyProfile extends Component {
@@ -30,6 +31,11 @@ class CompanyProfile extends Component {
 
     return (
       <div className="row">
+
+        <div className="col-xs-12">
+          <Header />
+        </div>
+
         <div className="col-xs-10 col-xs-offset-1">
           <SingleTitle
             id={companyId}
@@ -42,12 +48,16 @@ class CompanyProfile extends Component {
           />
         </div>
         <div className="stats-container col-xs-10 col-xs-offset-1">
-          <div className="stats-title col-xs-10 col-xs-offset-1">
-            <h3 className="col-xs-12 stats-label-misc">
-              Stats
-            </h3>
+
+          <div className="stats-title row">
+            <div className="col-xs-10 col-xs-offset-1">
+              <h3 className="col-xs-12 stats-label-misc">
+                Stats
+              </h3>
+            </div>
           </div>
-          <div className="row">
+
+          <div className="row stats">
             <div className="col-xs-10 col-xs-offset-1 row">
               <div className="progress-arc col-xs-2">
                 <ProgressArc
@@ -115,6 +125,33 @@ class CompanyProfile extends Component {
                     label="Interactions"
                   />
                 </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="stats-title row">
+            <div className="col-xs-10 col-xs-offset-1">
+              <h3 className="col-xs-12 stats-label-misc">
+                Reviews
+              </h3>
+            </div>
+          </div>
+
+          <div className="review-content col-xs-10 col-xs-offset-1">
+            <div className="row">
+              <div className="col-xs-12">
+                <p>
+                  <span className="bold">Lots of Interesting Projects</span>
+                  I worked at SolutionSet Full Time
+                </p>
+                <p>
+                  <span className="bold">Pros</span>
+                  Different clients means different technical problems to solve. Lots of learning of new technologies and applying on the job. My reporting chain really pushed for a quality 40 hours a week and that’s it. So good work life balance there.
+                </p>
+                <p>
+                  <span className="bold">Cons</span>
+                  You are creating stuff for another company. Once the contract is done, the thing you created is taken away by the client and sometimes destroyed.
+                </p>
               </div>
             </div>
           </div>

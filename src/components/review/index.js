@@ -52,7 +52,7 @@ class Review extends Component {
             <div className="row">
               <div className="col-xs-12">
                 <div className="sliders-container">
-                  {this.renderSliders()}
+
                 </div>
               </div>
             </div>
