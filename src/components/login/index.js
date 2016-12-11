@@ -82,7 +82,6 @@ class Login extends Component {
           </div>
           <div className="row">
             <div className="col-xs-12 button-container">
-              { this.renderErrorMessage() }
               <Button customClass='lg-btn' text='Sign In' handleOnClick={this.handleOnClick} onClick={this.handleOnClick}/>
             </div>
           </div>
