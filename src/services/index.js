@@ -22,8 +22,9 @@ export function postSignup(data) {
   return axios.post('/api/auth/signup', data)
     .then((response) => {
       if (response.data.status === 200) {
+        console.log('signup works!');
         localStorage.setItem('token', response.data.token);
-        browserHistory.push('/search');
+        // browserHistory.push('/search');
         return true;
       } else {
         return false;

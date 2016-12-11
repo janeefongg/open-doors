@@ -27,6 +27,7 @@ class ProgressArc extends Component {
     const context = this.setContext();
     this.setBackground(context);
     this.setForeground(context);
+    this.setPercentageText(context);
     this.updatePercent(context);
   }
 
@@ -54,8 +55,7 @@ class ProgressArc extends Component {
   }
 
   setContext() {
-    console.log('my d3 --- ', d3);
-    const { height, width, id} = this.props;
+    const { height, width, id } = this.props;
     return d3.select(this.refs.arc).append('svg')
       .attr('height', height)
       .attr('width', width)
@@ -76,6 +76,17 @@ class ProgressArc extends Component {
     .datum({ endAngle: 0 }) // <- (instead of tau * our percentage)
     .style('fill', this.props.foregroundColor)
     .attr('d', this.arc());
+  }
+
+  setPercentageText(context) {
+    const percentage = Math.floor(this.props.percentComplete * 100);
+    const fontSize = 30;
+    return context.append('text')
+      .text(percentage + '%')
+      .attr('text-anchor', 'middle')
+      .style('font-size', fontSize+'px')
+      .attr('dy', fontSize/3)
+      .attr('dx', fontSize/3)
   }
 
   tau() {
