@@ -52,6 +52,8 @@ Creating a new company:
 Creating a review:
 
 ```
+* = Optional
+
 /api/reviews {POST}
   Expected Body
     companyId: INTEGER
@@ -62,4 +64,5 @@ Creating a review:
     familySupport: INTEGER (0 - 5)
     workLifeBalance: INTEGER (0 - 5)
     equalPay: INTEGER (0 - 5)
+    *salaryCount: INTEGER
 ```
