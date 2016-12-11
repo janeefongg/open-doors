@@ -12,6 +12,7 @@ import Login from './login';
 import SearchCompany from './search-company';
 import CompanyProfile from './company-profile';
 import ListCompanies from './list-companies';
+import { requireAuth } from '../helpers/auth';
 
 const store = configureStore(initialState);
 sagaMiddleware.run(rootSaga);
@@ -29,7 +30,7 @@ const Root = () => (
       </Route>
       <Route path="/list" component={ListCompanies}>
       </Route>
-      <Route path="/company" component={CompanyProfile}>
+      <Route path="/company" component={CompanyProfile} onEnter={requireAuth}>
       </Route>
     </Router>
   </Provider>

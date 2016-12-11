@@ -5,12 +5,11 @@ import Button from '../common/Button';
 import './login.scss';
 import Logo from '../common/Logo';
 import { connect } from 'react-redux';
-import { saveUsername } from '../../actions/login';
+import { saveUsername, savePassword, postLogin } from '../../actions/login';
 
 class Login extends Component {
   constructor(props) {
     super(props);
-    console.log('this is this.props in constructor', this.props)
     this.handleOnClick = this.handleOnClick.bind(this);
     this.saveUsername = this.saveUsername.bind(this);
     this.savePassword = this.savePassword.bind(this);
@@ -21,8 +20,11 @@ class Login extends Component {
       // if so then redirect
       // else send an error to page
     const { username, password } = this.props;
+    console.log('this is props', this.props)
     if(this.props.username.length > 0 && this.props.password.length > 0) {
-      this.props.dispatch({ type: 'POST_LOGIN', payload: { username: username, password: password }});
+      console.log('in here', this.state, this.props)
+      // this.props.dispatch({ type: 'POST_LOGIN', payload: { username: username, password: password }});
+      this.props.postLogin({ username, password });
     }
   }
 
@@ -31,10 +33,10 @@ class Login extends Component {
     this.props.saveUsername(username);
   }
 
-  savePassword(payload) {
+  savePassword(password) {
     // call dispatch to save username to store
-    console.log('saving!');
-    this.props.dispatch( {type: 'SAVE_PASSWORD', payload });
+    // this.props.dispatch( {type: 'SAVE_PASSWORD', payload });
+    this.props.savePassword(password);
   }
 
   render() {
@@ -80,7 +82,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => {
-	return bindActionCreators({ saveUsername }, dispatch);
+	return bindActionCreators({ saveUsername, savePassword, postLogin }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
