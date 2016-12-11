@@ -49,33 +49,35 @@ class Review extends Component {
         </div>
         <div className="row">
           <div className="col-xs-offset-3 col-xs-6">
-            <div className="row">
-              <div className="col-xs-12 center-xs">
-                <span className="review-title">{`Write a Review for "Digital Insight"`}</span>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-xs-12">
-                <InputForm saveData={this.handleOnChange} placeholder='Write a little review' />
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-xs-12">
-                <div className="rate-company-container">
-                  Leave a 1-5 Review
+            <div className="review-body">
+              <div className="row">
+                <div className="col-xs-12 center-xs">
+                  <span className="review-title">{`Write a Review for "Digital Insight"`}</span>
                 </div>
               </div>
-            </div>
-            <div className="row">
-              <div className="col-xs-12">
-                <div className="sliders-container">
+              <div className="row">
+                <div className="col-xs-12">
+                  <InputForm saveData={this.handleOnChange} placeholder='Write a little review' />
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-xs-12">
+                  <div className="rate-company-container">
+                    Leave a 1-5 Review
+                  </div>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-xs-12">
+                  <div className="sliders-container">
 
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="row">
-              <div className="col-xs-12 button-container">
-                <Button customClass='lg-btn' text='Post Your Review' handleOnClick={this.handleOnClick} />
+              <div className="row">
+                <div className="col-xs-12 button-container">
+                  <Button customClass='lg-btn' text='Post Your Review' handleOnClick={this.handleOnClick} />
+                </div>
               </div>
             </div>
           </div>
