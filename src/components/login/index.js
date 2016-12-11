@@ -12,6 +12,7 @@ class Login extends Component {
     super(props);
 
     this.handleOnClick = this.handleOnClick.bind(this);
+    this.saveUsername = this.saveUsername.bind(this);
   }
 
   handleOnClick() {
@@ -29,7 +30,7 @@ class Login extends Component {
     // call dispatch to save username to store
     console.log('saving! --- ', this.props);
     // console.log('saveusername --- ', saveUsername);
-    console.log('')
+    console.log('username --- ', this.props.username);
     this.props.saveUsername({ username });
   }
 
