@@ -21,6 +21,7 @@ export function postLogin(data) {
 export function postSignup(data) {
   return axios.post('/api/auth/signup', data)
     .then((response) => {
+      console.log('this is response on signup', response);
       if (response.data.status === 200) {
         console.log('signup works!');
         localStorage.setItem('token', response.data.token);

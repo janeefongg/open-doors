@@ -6,7 +6,7 @@ import InputForm from '../common/InputForm';
 import Button from '../common/Button';
 import Logo from '../common/Logo';
 import ErrorMessage from '../common/ErrorMessage';
-import { browserHistory } from 'react-router';
+// import { browserHistory } from 'react-router';
 import './register.scss';
 
 class Register extends Component {
