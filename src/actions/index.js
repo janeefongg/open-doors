@@ -16,3 +16,16 @@ export function postLogin(data) {
       }
     });
 }
+
+export function postSignup(data) {
+  axios.post('/api/auth/signup', data)
+    .then((response) => {
+      if (response.data.status === 200) {
+        localStorage.setItem('token', response.data.token);
+        return true;
+      } else {
+        return false;
+      }
+    })
+}
+

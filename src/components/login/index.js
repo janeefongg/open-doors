@@ -10,6 +10,7 @@ import { saveUsername } from '../../actions/login';
 class Login extends Component {
   constructor(props) {
     super(props);
+    console.log('this is this.props in constructor', this.props)
     this.handleOnClick = this.handleOnClick.bind(this);
     this.saveUsername = this.saveUsername.bind(this);
     this.savePassword = this.savePassword.bind(this);
@@ -19,10 +20,9 @@ class Login extends Component {
     // check if login store has all values
       // if so then redirect
       // else send an error to page
-    console.log('submitting login!');
-    // const { username, password } = this.props;
+    const { username, password } = this.props;
     if(this.props.username.length > 0 && this.props.password.length > 0) {
-      // this.props.saveUsername({ username, password });
+      this.props.dispatch({ type: 'POST_LOGIN', payload: { username: username, password: password }});
     }
   }
 
@@ -34,6 +34,7 @@ class Login extends Component {
   savePassword(payload) {
     // call dispatch to save username to store
     console.log('saving!');
+    this.props.dispatch( {type: 'SAVE_PASSWORD', payload });
   }
 
   render() {

@@ -11,11 +11,9 @@ export default function configureStore(preloadedState) {
   return createStore(
     rootReducer,
     preloadedState,
-    compose(
-      applyMiddleware(
-        sagaMiddleware,
-        loggerMiddleware
-      )
+    applyMiddleware(
+      sagaMiddleware,
+      loggerMiddleware
     )
   )
 }
