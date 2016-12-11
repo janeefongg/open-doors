@@ -3,6 +3,7 @@ import InputForm from '../common/InputForm';
 import Button from '../common/Button';
 import './login.scss';
 import logo from '../../assets/logo.svg';
+import { connect } from 'react-redux';
 
 class Login extends Component {
   constructor(props) {
