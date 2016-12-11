@@ -4,14 +4,14 @@ import { call, put } from 'redux-saga/effects'
 import { postLogin } from '../actions/index'
 
 function* loginUser(action) {
-  const signInObj = {
+  const loginObj = {
     username: action.payload.username,
     password: action.payload.password,
   };
 
   try {
     console.log('inside here')
-    const isLoginSuccessful = yield call(postLogin, signInObj);
+    const isLoginSuccessful = yield call(postLogin, loginObj);
     console.log('this is isLoginSuccessful', isLoginSuccessful)
     yield put ({ type: 'SIGNIN_SUCCESS', isSignedIn: true })
   } catch (e) {
