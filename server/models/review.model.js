@@ -8,6 +8,9 @@ const Review = sequelize.define('reviews', {
     type     : Sequelize.TEXT,
     allowNull: false,
   },
+  salary: {
+    type: Sequelize.INTEGER,
+  },
   // ratings (1-5)
   interactions: {
     type     : Sequelize.INTEGER,
@@ -69,6 +72,11 @@ Review.hook('afterCreate', async (review) => {
     'workLifeBalance',
     'equalPay',
   ]));
+  console.log('review.salary = ', review.salary);
+  if (review.salary) {
+    company.set('salaryCount', company.get('salaryCount') + 1);
+    await company.save();
+  }
   return sequelize.Promise.resolve();
 });
 

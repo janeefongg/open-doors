@@ -3,7 +3,7 @@ import { getColumns, validateBody } from '../services/controllerHelpers';
 
 export const validateReview = async (req, res, next) => {
   try {
-    const requiredParams = await getColumns('Review');
+    const requiredParams = await getColumns('Review', { salary: true });
     requiredParams.push('companyId');
     if (validateBody(req, requiredParams)) {
       next();
@@ -29,6 +29,7 @@ export const postReview = async (req, res) => {
       workLifeBalance,
       equalPay,
       companyId,
+      salary,
     } = req.body;
     const review = await Review.create({
       message,
@@ -39,6 +40,7 @@ export const postReview = async (req, res) => {
       workLifeBalance,
       equalPay,
       companyId,
+      salary,
     });
     res.json({
       success: true,
