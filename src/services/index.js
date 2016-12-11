@@ -10,7 +10,7 @@ export function postLogin(data) {
       if (response.status === 200) {
         console.log('status 200')
         localStorage.setItem('token', response.data.token);
-        browserHistory.push('/');
+        browserHistory.push('/search');
         return true;
       } else {
         return false;
