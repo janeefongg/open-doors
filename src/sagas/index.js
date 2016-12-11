@@ -12,7 +12,7 @@ function* loginUser(action) {
   };
 
   try {
-    const isLoginSuccessful = yield call(postLogin, loginObj);
+    yield call(postLogin, loginObj);
     yield put({ type: 'LOGIN_STATUS', payload: true });
   } catch (e) {
     yield put({ type: 'LOGIN_STATUS', payload: false });

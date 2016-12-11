@@ -6,10 +6,12 @@ import './login.scss';
 import Logo from '../common/Logo';
 import { connect } from 'react-redux';
 import { saveUsername, savePassword, postLogin } from '../../actions/login';
+import ErrorMessage from '../common/ErrorMessage';
 
 class Login extends Component {
   constructor(props) {
     super(props);
+    this.state = { showError: false };
     this.handleOnClick = this.handleOnClick.bind(this);
     this.saveUsername = this.saveUsername.bind(this);
     this.savePassword = this.savePassword.bind(this);
@@ -19,12 +21,15 @@ class Login extends Component {
     // check if login store has all values
       // if so then redirect
       // else send an error to page
-    const { username, password } = this.props;
-    console.log('this is props', this.props)
-    if(this.props.username.length > 0 && this.props.password.length > 0) {
-      console.log('in here', this.state, this.props)
-      // this.props.dispatch({ type: 'POST_LOGIN', payload: { username: username, password: password }});
+    const { username, password, isLoginSuccess } = this.props;
+    if (isLoginSuccess === null || !isLoginSuccess) {
       this.props.postLogin({ username, password });
+      if (!isLoginSuccess) {
+        //if login is not successful after first attempt
+        this.setState({ showError: true });
+      }
+    } else {
+      this.setState({ showError: true });
     }
   }
 
@@ -37,6 +42,16 @@ class Login extends Component {
     // call dispatch to save username to store
     // this.props.dispatch( {type: 'SAVE_PASSWORD', payload });
     this.props.savePassword(password);
+  }
+
+  renderErrorMessage() {
+    if(this.state.showError) {
+      return (
+        <ErrorMessage message='Incorrect Username/Password.' />
+      );
+    } else {
+      return null;
+    }
   }
 
   render() {
@@ -62,11 +77,12 @@ class Login extends Component {
           </div>
           <div className="row">
             <div className="col-xs-12">
-              <InputForm saveData={this.savePassword} placeholder='Password' />
+              <InputForm saveData={this.savePassword} type='password' placeholder='Password' />
             </div>
           </div>
           <div className="row">
             <div className="col-xs-12 button-container">
+              { this.renderErrorMessage() }
               <Button customClass='lg-btn' text='Sign In' handleOnClick={this.handleOnClick} onClick={this.handleOnClick}/>
             </div>
           </div>
@@ -77,8 +93,9 @@ class Login extends Component {
 }
 
 const mapStateToProps = state => ({
-  username: state.login.username,
-  password: state.login.password,
+  username      : state.login.username,
+  password      : state.login.password,
+  isLoginSuccess: state.login.isLoginSuccess,
 });
 
 const mapDispatchToProps = dispatch => {

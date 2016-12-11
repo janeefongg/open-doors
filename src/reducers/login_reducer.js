@@ -5,6 +5,7 @@ export default function(state = {}, action) {
 		case 'SAVE_PASSWORD':
 			return {...state, password: action.payload }
 		case 'LOGIN_STATUS':
+			console.log('login status payload', action.payload)
 			return { ...state, isLoginSuccess: action.payload }
 		default:
 			return state;
