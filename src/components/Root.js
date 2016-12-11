@@ -35,7 +35,7 @@ const initialState = {
 const store = configureStore(initialState);
 sagaMiddleware.run(rootSaga);
 
-console.log('my store --- ', store);
+console.log('my store --- ', store.getState());
 const Root = () => (
   <Provider store={store}>
     <Router history={browserHistory}>
