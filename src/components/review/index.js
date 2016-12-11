@@ -27,10 +27,12 @@ class Review extends Component {
     const sliders = ['Interactions', 'Harassment', 'Advancement', 'Family Support', 'Work Life Balance', 'Equal Pay'];
     return sliders.map((item, i) => {
       return (
-        <div className="row" key={i}>
-          <div className="col-xs-12">
-            <div className="slider-container">
+        <div className="slider-container">
+          <div className="row" key={i}>
+            <div className="col-xs-4">
               <span className="slider-label">{item}</span>
+            </div>
+            <div className="col-xs-8">
               <Slider />
             </div>
           </div>

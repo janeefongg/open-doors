@@ -5,7 +5,7 @@ import './Slider.scss';
 class Slider extends Component {
   constructor(props) {
     super(props);
-    this.state = { value: 0 }
+    this.state = { value: 5 }
     this.handleOnChange = this.handleOnChange.bind(this);
   }
 
