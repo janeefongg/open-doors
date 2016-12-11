@@ -1,3 +1,5 @@
+@import '../../styles/colors';
+
 .progress-arc-label {
   display: block;
   text-align: center;
@@ -18,4 +20,14 @@ span.bold {
 
 .review-content {
   font-size: 18px;
+}
+
+.single-review-container {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid palette("gray", -10);
+}
+
+.single-review-container:last-child {
+  border: none;
 }
