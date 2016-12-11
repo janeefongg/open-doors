@@ -7,6 +7,7 @@ import logo from '../../assets/logo.svg';
 class Login extends Component {
   constructor(props) {
     super(props);
+
     this.handleOnClick = this.handleOnClick.bind(this);
   }
 
