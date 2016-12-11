@@ -23,4 +23,13 @@
 .rate-company-container {
   margin-top: 1rem;
   font-size: 20px;
+  display: flex;
+  align-items: center;
+  span {
+    margin-right: 0.5rem;
+  }
+
+  .review-stars {
+    margin: 0 2px;
+  }
 }
