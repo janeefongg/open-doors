@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ProgressArc from './progress-arc';
+import StatBar from './stat-bar';
 // import './company.scss';
 
 class CompanyProfile extends Component {
@@ -7,7 +8,7 @@ class CompanyProfile extends Component {
     return (
       <div>
         <h1>Company Profile Goes Here</h1>
-        <div className="stats-container">
+        <div className="stats-container row">
           Female
           <ProgressArc
             height={150}
@@ -32,6 +33,42 @@ class CompanyProfile extends Component {
             foregroundColor="#E338A3"
             percentComplete={.78}
           />
+          <div className="stat-bar-container col-xs-2">
+            <StatBar
+              rating={341}
+              label="Equal Pay"
+            />
+          </div>
+          <div className="stat-bar-container col-xs-2">
+            <StatBar
+              rating={388}
+              label="Harassment"
+            />
+          </div>
+          <div className="stat-bar-container col-xs-2">
+            <StatBar
+              rating={480}
+              label="Advancement"
+            />
+          </div>
+          <div className="stat-bar-container col-xs-2">
+            <StatBar
+              rating={379}
+              label="Family Support"
+            />
+          </div>
+          <div className="stat-bar-container col-xs-2">
+            <StatBar
+              rating={411}
+              label="Work Life Balance"
+            />
+          </div>
+          <div className="stat-bar-container col-xs-2">
+            <StatBar
+              rating={425}
+              label="Interactions"
+            />
+          </div>
         </div>
       </div>
     );
