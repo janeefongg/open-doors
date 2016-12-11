@@ -10,7 +10,6 @@ const SingleRating = ({ ratings }) => {
     overallRating,
     reviewCount,
     salaryCount,
-    interactions,
   } = ratings;
   return (
     <div className="company-rating row">
