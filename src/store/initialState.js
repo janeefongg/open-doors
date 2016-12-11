@@ -16,6 +16,7 @@ const initialState = {
     numberOfFields      : 2,
     numberOfValidAnswers: 0,
     isValid             : false,
+    isLoginSuccess      : null,
   },
 }
 
