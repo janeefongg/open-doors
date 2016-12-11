@@ -9,6 +9,7 @@ const initialState = {
     numberOfValidAnswers: 0,
     isValid             : false,
     isEmail             : true,
+    isRegisterSuccess   : null,
   },
   login: {
     username            : '',
