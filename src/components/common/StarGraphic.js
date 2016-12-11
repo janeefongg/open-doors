@@ -20,7 +20,7 @@ const StarGraphic = ({ stars }) => {
         } else if (starState === "half") {
           starState = HalfStar;
         }
-        return <img className="star-graphic" src={starState} key={idx} />;
+        return <img className="star-graphic" src={starState} key={idx} role="presentation" />;
       })}
     </div>
   );
