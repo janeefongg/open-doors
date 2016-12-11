@@ -2,7 +2,8 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { Router, Route, browserHistory } from 'react-router';
-
+import { sagaMiddleware } from '../configureStore';
+import rootSaga from '../sagas/sagas';
 import configureStore from '../configureStore';
 import Splash from './splash';
 import Register from './register';
@@ -32,7 +33,9 @@ const initialState = {
 }
 
 const store = configureStore(initialState);
+sagaMiddleware.run(rootSaga);
 
+console.log('my store --- ', store);
 const Root = () => (
   <Provider store={store}>
     <Router history={browserHistory}>
