@@ -35,10 +35,10 @@ class SearchBox extends Component {
       <div className='search-box-container'>
         <div className='row center-xs'>
           <div className='col-xs-12'>
-            <InputForm placeholder="Search" containerClass="search-left">
+            <InputForm placeholder="Search" containerClass="search-left" saveData={this.props.saveCompanyName} >
               <img src={SearchIcon} alt="search" className="search-input-logo" />
             </InputForm>
-            <InputForm placeholder="Where?" containerClass="search-right">
+            <InputForm placeholder="Where?" containerClass="search-right" saveData={this.props.saveCompanyLocation} >
               <img src={LocationIcon} alt="search" className="search-input-logo" />
             </InputForm>
           </div>

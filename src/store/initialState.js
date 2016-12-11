@@ -19,6 +19,11 @@ const initialState = {
     isValid             : false,
     isLoginSuccess      : null,
   },
+  search: {
+    name         : '',
+    location     : '',
+    searchResults: [],
+  },
 }
 
 export default initialState;

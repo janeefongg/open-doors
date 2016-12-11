@@ -30,3 +30,16 @@ export function postSignup(data) {
     })
 }
 
+export function searchCompany(data) {
+  console.log('this is data', data)
+  axios.get(`/api/companies?search=${data}`)
+    .then((response) => {
+      if (response.data.status === 200) {
+        localStorage.setItem('token', response.data.token);
+      } else {
+        console.log('inside here');
+        return { type: 'REGISTRATION_FAIL', payload: false };
+      }
+    })
+}
+
