@@ -45,9 +45,9 @@ class AnimateInputField extends Component {
           type={type}
           onChange={this.handleOnChange}
         />
-        { this.props.children }
         <label className='fl-input-form-label' htmlFor={id}>{placeholder}</label>
         <span className='fl-input-bar'></span>
+        { this.props.children }
       </div>
     );
   }

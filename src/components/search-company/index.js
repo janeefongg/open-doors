@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Button from '../common/Button';
 import SearchBoxContainer from './SearchBoxContainer';
 import logo from '../../assets/logo.svg';
+import './SearchCompany.scss';
 
 class SearchCompany extends Component {
   constructor(props) {
@@ -22,8 +23,8 @@ class SearchCompany extends Component {
           </div>
         </div>
         <div className="row">
-          <div className="col-xs-12">
-            <h1>Search job sites, newspapers, associations, and company career pages.</h1>
+          <div className="col-md-8 col-md-offset-2 search-title">
+            <h2>Search job sites, newspapers, associations, and company career pages.</h2>
           </div>
         </div>
         <div className="row">
@@ -35,7 +36,7 @@ class SearchCompany extends Component {
                 </div>
               </div>
               <div className="row">
-                <div className="col-xs-12 center-xs">
+                <div className="col-xs-12 button-container">
                   <Button customClass='lg-btn' text='Search' handleOnClick={this.handleOnClick} />
                 </div>
               </div>
